@@ -17,8 +17,8 @@
         <a href="/about" class="btn btn-link">About</a>
         <a href="/contact" class="btn btn-link">Contact</a>
         <a href="/news" class="btn btn-link">News</a>
-        <a href="/signin" class="btn btn-link">Sign in</a>
-        <a href="/signup" class="btn btn-success">Sign up</a>
+        <a href="/signin" class="btn btn-secondary">Sign in</a>
+        <a href="/signup" class="btn btn-primary">Sign up</a>
     </section>
     <!-- <section class="navbar-section">
         <div class="input-group input-inline">
