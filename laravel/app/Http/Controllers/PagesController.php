@@ -27,4 +27,14 @@ class PagesController extends Controller
     {
         return view('contact');
     }
+
+    public function news()
+    {
+        return view('news');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('privacy_policy');
+    }
 }

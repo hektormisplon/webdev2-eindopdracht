@@ -14,3 +14,15 @@
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
+Route::get('/news', 'PagesController@news');
+Route::get('/privacy-policy', 'PagesController@privacyPolicy');
+
+/**
+ * Auth routes
+ */
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/signup', 'AuthController@signUp');
+// Route::get('/signin', 'AuthController@signIn');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
