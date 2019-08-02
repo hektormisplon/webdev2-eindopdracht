@@ -17,14 +17,12 @@
 <div class="container">
     @include('partials.header')
     <div class="columns">
-        <div class="column">
+        <div class="column col-3">
         @include('partials.sidebar')
         </div>
-        <div class="column col-auto">
-        <div class="container">
-            @yield('content')
+        <div class="column col-6">
+                @yield('content')
         </div>
-        @include('partials.footer')
     </div>
 </div>
 </body>
