@@ -21,7 +21,7 @@
         @include('partials.sidebar')
         </div>
         <div class="column col-6">
-                @yield('content')
+            @yield('content')
         </div>
     </div>
 </div>

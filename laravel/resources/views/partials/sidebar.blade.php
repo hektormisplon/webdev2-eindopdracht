@@ -1,8 +1,5 @@
 <nav>
     <ul class="nav">
-        <li class="nav-item">
-            <a href="#">Item 1.0</a>
-        </li>
         <li class="nav-item active">
             <a href="/projects">Projects</a>
             <ul class="nav">
@@ -11,8 +8,8 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a href="#">Profile</a>
-        </li>
+        </li> -->
     </ul>
 </nav>

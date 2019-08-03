@@ -19,16 +19,6 @@
                 @endauth
             </div>
         @endif
-        <div class="content">
-            <div class="title m-b-md">
-                Laravel
-            </div>
-            <div class="links">
-                <a href="https://laravel.com/docs">Docs</a>
-                <a href="/contact">Contact</a>
-                <a href="/about">About</a>
-            </div>
-        </div>
     </div>
 </html>
 @endsection

@@ -36,7 +36,7 @@
     <p class="empty-subtitle">Would you like to create a new project?</p>
     <div class="empty-action">
         <a class="btn btn-primary" href="/projects/create">Create project</a>
-        <button class="btn btn-link">Go back</button>
+        <a class="btn btn-link" href="{{ url()->previous() }}">Go back</a>
     </div>
 </div>
 @endif
