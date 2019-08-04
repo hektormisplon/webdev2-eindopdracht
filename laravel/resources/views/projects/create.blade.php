@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label class="form-label" for="descriptioon">Description</label>
-        <input type="text" class="form-input @error('description') is-error @enderror" name="description" value="{{ old('description') }}"/>
+        <input class="form-input @error('description') is-error @enderror" type="text" name="description" value="{{ old('description') }}"/>
         @error('description')
         <div class="toast toast-error">{{ $message }}</div>
         @enderror
