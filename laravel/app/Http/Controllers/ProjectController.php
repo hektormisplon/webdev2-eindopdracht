@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\Events\ProjectPublished;
 
 class ProjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        /**
+         * Get all projects for currently authenticated user
+         */
+        return view('projects.index', ['projects' => auth()->user()->projects]);
     }
 
     public function create()
@@ -20,31 +28,40 @@ class ProjectController extends Controller
 
     public function store()
     {
-        Project::create(request()->validate([
+        $attributes = request()->validate([
             'title' => ['required', 'min:3'],
             'description' => ['required', 'min:15']
-        ]));
+        ]);
+        $attributes['owner_id'] = auth()->id();
+        $project = Project::create($attributes);
         return redirect('/projects')->with('Success', 'Your project is now published.');
     }
 
     public function show(Project $project)
     {
+        $this->authorize('update', $project);
         return view('projects.show', compact('project'));
     }
 
     public function edit(Project $project)
     {
+        $this->authorize('update', $project);
         return view('projects.edit', compact('project'));
     }
 
     public function update(Project $project)
     {
-        $project->update(request(['title', 'description']));
+        $this->authorize('update', $project);
+        $project->update(request()->validate([
+            'title' => ['required', 'min:3'],
+            'description' => ['required', 'min:15']
+        ]));
         return redirect('/projects')->with('success', 'Your project has been updated.');
     }
 
     public function destroy(Project $project)
     {
+        $this->authorize('update', $project);
         $project->delete();
         return redirect('/projects')->with('success', 'Your project has been deleted.');
     }
