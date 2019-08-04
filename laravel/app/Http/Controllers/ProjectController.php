@@ -34,7 +34,8 @@ class ProjectController extends Controller
         ]);
         $attributes['owner_id'] = auth()->id();
         $project = Project::create($attributes);
-        return redirect('/projects')->with('Success', 'Your project is now published.');
+        session()->flash('message', 'Your project has been published.');
+        return redirect('/projects');
     }
 
     public function show(Project $project)

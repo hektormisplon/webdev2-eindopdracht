@@ -1,5 +1,10 @@
 @extends('layout')
 @section('content')
+@if(session('message'))
+<div class="toast toast-success">
+  {{ session('message') }}
+</div>
+@endif
 @if(count($projects) > 0)
     @foreach($projects as $project)
     <div class="card">
