@@ -21,13 +21,14 @@ Route::get('/privacy-policy', 'PagesController@privacyPolicy');
  * Project routes
  */
 Route::resource('projects', 'ProjectController');
+Route::get('/pledges', 'ProjectPledgeController@index');
+Route::get('/pledges/{pledge}', 'ProjectPledgeController@show');
+Route::patch('/pledges/{pledge}', 'ProjectPledgeController@update');
+Route::patch('/projects/{project}/pledge', 'ProjectPledgeController@store');
 
 /**
  * Auth routes
  */
-
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/sigup', 'AuthController@sinUp');
-// Route::get('/signin', 'AuthController@signIn');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
