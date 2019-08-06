@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div>
-    <h1>Privacy policy</h1>
+    <h2>Privacy policy</h2>
     <p>
 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu dictum leo. Maecenas vestibulum tincidunt dictum. Mauris vitae metus at arcu cursus feugiat quis a sem. Praesent justo nibh, facilisis a nunc sit amet, pretium feugiat libero. Nunc nisl lacus, semper id luctus sed, condimentum sit amet tortor. Aenean sed luctus enim. Quisque non nibh leo. Sed maximus iaculis est a gravida. Suspendisse potenti. Morbi nec justo nisl. Proin sollicitudin massa vel aliquam tincidunt. Aenean tristique risus non blandit viverra. Suspendisse eleifend commodo metus, non luctus libero scelerisque quis. Donec dignissim enim a suscipit ullamcorper. In interdum velit et dui commodo, et porttitor velit molestie. Nulla vehicula blandit volutpat.

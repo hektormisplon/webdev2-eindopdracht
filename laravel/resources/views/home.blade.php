@@ -6,7 +6,7 @@
 </a>
 <div class="card">
     <div class="card-header">
-        <h1>{{ auth()->user()->email }}</h1>
+        <h2>{{ auth()->user()->email }}</h2>
     </div>
     <div class="card-body">
         {{ auth()->user()->role }}
