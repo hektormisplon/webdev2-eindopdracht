@@ -1,10 +1,11 @@
 @extends('layout')
 @section('title', 'About us')
 @section('content')
+<h1>About</h1>
+<div class="divider" data-content="Get to know us"></div>
 <div class="hero hero-lg bg-primary">
     <div class="hero-body">
-        <h1>About</h1>
-        <p>This is a hero example</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima excepturi a, dolorum consequatur aliquam cumque quaerat voluptates optio eum veritatis?</p>
     </div>
 </div>
 @endsection
