@@ -28,12 +28,13 @@ class ProjectController extends Controller
 
     public function store()
     {
+        $this->authorize('create');
         $attributes = request()->validate([
             'title' => ['required', 'min:3'],
             'description' => ['required', 'min:15']
         ]);
         $attributes['owner_id'] = auth()->id();
-        $project = Project::create($attributes);
+        Project::create($attributes);
         session()->flash('message', 'Your project has been published.');
         return redirect('/projects');
     }

@@ -17,8 +17,20 @@ class ProjectPolicy
      * @param  \App\Project  $project
      * @return mixed
      */
+    public function create(User $user)
+    {
+        return $user->hasVerifiedEmail() == true;
+    }
+
+    /**
+     * Determine whether the user can update the project.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Project  $project
+     * @return mixed
+     */
     public function update(User $user, Project $project)
     {
-        return $project->owner_id == $user->id;
+        return $project->owner_id == $user->id && $user->hasVerifiedEmail();
     }
 }
