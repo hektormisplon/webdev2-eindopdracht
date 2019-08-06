@@ -17,18 +17,20 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/news', 'PagesController@news');
 Route::get('/privacy-policy', 'PagesController@privacyPolicy');
 
-/**
- * Project routes
- */
+
 Route::resource('projects', 'ProjectController');
+Route::resource('profile', 'UserController');
+
 Route::get('/pledges', 'ProjectPledgeController@index');
 Route::get('/pledges/{pledge}', 'ProjectPledgeController@show');
 Route::patch('/pledges/{pledge}', 'ProjectPledgeController@update');
 Route::patch('/projects/{project}/pledge', 'ProjectPledgeController@store');
 
-/**
- * Auth routes
- */
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+
+Route::group(['middleware' => ['auth', 'can:admin']], function () {
+    Route::get('/account', 'AccountController@index');
+});
