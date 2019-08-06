@@ -5,10 +5,10 @@
         <a class='btn btn-link' href="/news">News</a>
     </section>
     <section class='navbar-section'>
-        <p>&copy; <!-- TODO: dynamic year + sitename --> 
-            <a href="/terms-of-use">Terms of use</a> | <a href="/privacy-policy">Privacy policy</a>
-        </p>
-        <p>Street name 7, 9000 Ghent, Belgium</p>
+        <p>&copy; {{ date('Y') }} | {{ config('app.name') }} </p>
+        <a href="/terms-of-use">Terms of use</a>
+        <a href="/privacy-policy">Privacy policy</a>
+        <!-- <p>Street name 7, 9000 Ghent, Belgium</p> -->
     </section>
     <section class='navbar-section'>
         <a class="btn btn-link" href="#">Facebook</a>
