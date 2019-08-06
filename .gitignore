@@ -2,7 +2,9 @@ vendor/
 node_modules/
 npm-debug.log
 NOTES.*
+NOTES/*
 IDEA.*
+IDEA/*
 
 # Laravel 4 specific
 bootstrap/compiled.php

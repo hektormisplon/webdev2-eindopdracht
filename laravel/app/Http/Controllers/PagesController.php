@@ -8,14 +8,7 @@ class PagesController extends Controller
 {
     public function home()
     {
-        $titles = [
-            'Creunite',
-            'Who we are',
-            'Get in touch'
-        ];
-        return view('welcome', [
-            'titles' => $titles
-        ]);
+        return view('welcome');
     }
 
     public function about()

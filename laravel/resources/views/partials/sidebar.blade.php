@@ -1,30 +1,18 @@
-<nav>
-    <ul class="nav">
-    <li class="nav-item">
-        <a href="#">Item 1.0</a>
-    </li>
-    <li class="nav-item active">
-        <a href="#">Item Group 1.0</a>
+<div class="off-canvas off-canvas-sidebar-show">
+    <a class="off-canvas-toggle btn btn-primary btn-action m-header" href="#sidebar">
+        <i class="icon icon-arrow-right"></i>
+    </a>
+    <div class="off-canvas-sidebar bg-primary m-header" id="sidebar">
         <ul class="nav">
-        <li class="nav-item">
-            <a href="#">Item 1</a>
-        </li>
-        <li class="nav-item">
-            <a href="#">Item 2</a>
-        </li>
-        <li class="nav-item">
-            <a href="#">Item 3</a>
-        </li>
-        <li class="nav-item">
-            <a href="#">Item 4</a>
-        </li>
+            <li class="nav-item">
+                <a class="text-light" href="/projects">Projects</a>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="/projects/create">Create project</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
-    </li>
-    <li class="nav-item">
-        <a href="#">Components</a>
-    </li>
-    <li class="nav-item">
-        <a href="#">Utilities</a>
-    </li>
-    </ul>
-</nav>
+    </div>
+    <a class="off-canvas-overlay m-header" href="#close"></a>
+</div>
