@@ -1,23 +1,15 @@
-@extends('layouts.app')
-
+@extends('layout')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+<!-- TODO: flash welcome message here -->
+<a class="dropdown-item" href="{{ route('profile.index') }}">
+    View profile
+</a>
+<div class="card">
+    <div class="card-header">
+        <h1>{{ auth()->user()->email }}</h1>
+    </div>
+    <div class="card-body">
+        {{ auth()->user()->role }}
     </div>
 </div>
 @endsection

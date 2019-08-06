@@ -1,29 +1,40 @@
-<!-- <header>
-    <div class="logo">
-        <a href="/">Logo</a>
-    </div>
-    <nav>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/news">News</a>
-    </nav>
-</header> -->
-
-<header class="navbar">
+<header class="header p-fixed navbar bg-light">
     <section class="navbar-section">
-        <a href="/" class="navbar-brand">Creunite</a>
+        <a href="/" class="navbar-brand">{{ config('app.name') }}</a>
     </section>
-    <section class="navbar-primary">
+    <section class="navbar-center">
+        <a class="btn btn-link badge" href="/credits" data-badge="80">
+            <i class="icon icon-2x" data-feather="package"></i>
+        </a>
+    </section>
+    <section class="navbar-section">
         <a href="/about" class="btn btn-link">About</a>
         <a href="/contact" class="btn btn-link">Contact</a>
         <a href="/news" class="btn btn-link">News</a>
-        <a href="/login" class="btn btn-secondary">Sign in</a>
-        <a href="/register" class="btn btn-primary">Sign up</a>
-    </section>
-    <!-- <section class="navbar-section">
-        <div class="input-group input-inline">
-        <input class="form-input" type="text" placeholder="search">
-        <button class="btn btn-primary input-group-btn">Search</button>
+        @guest
+        <div class="btn-group">
+            <a href="/login" class="btn btn-secondary">Sign in</a>
+            <a href="/register" class="btn btn-primary">Sign up</a>
         </div>
-    </section> -->
+        @endguest
+        @auth
+        <div class="popover popover-bottom">
+            <a href="/profile">
+                <figure class="avatar avatar-lg"> <img src="/storage/avatars/{{ auth()->user()->avatar }}" /></figure>
+            </a>
+            <div class="popover-container">
+                <div class="d-inline-flex">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-action btn-error" type="submit"></button>
+                    </form>
+                    <a class="btn btn-action" href="{{ route('profile.index') }}">
+                    </a>
+                    <a class="btn btn-action" href="{{ route('profile.index') }}">
+                    </a>
+                </div>
+            </div>
+        </div>
+        @endauth
+    </section>
 </header>
