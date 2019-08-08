@@ -4,9 +4,12 @@
     height: 3rem;
     width: 100%;
     padding: 0 $layout-spacing;
-    z-index: $zindex-0 + 1;
 }
 
 .m-header {
     margin-top: 3rem;
+}
+
+.p-header {
+    padding-top: 1rem;
 }
