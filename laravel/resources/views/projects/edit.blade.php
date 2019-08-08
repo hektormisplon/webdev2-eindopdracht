@@ -1,10 +1,10 @@
 @extends('layout')
 @section('content')
-<h1>Edit project</h1>
+<h3>Edit project</h3>
 @if ($errors->any())
-  @foreach ($errors->all() as $error)
-    <div class="toast toast-error">{{ $error }}</div>
-  @endforeach
+@foreach ($errors->all() as $error)
+<div class="toast toast-error">{{ $error }}</div>
+@endforeach
 @endif
 <form method="post" action="{{ route('projects.update', $project->id) }}">
   @method('PATCH')
@@ -15,7 +15,7 @@
   </div>
   <div class="form-group">
     <label class="form-label" for="description">Description</label>
-    <textarea type="text" class="form-input" name="description">{{ $project->description }}</textarea> 
+    <textarea type="text" class="form-input" name="description">{{ $project->description }}</textarea>
   </div>
   <button type="submit" class="btn btn-primary">Save</button>
 </form>

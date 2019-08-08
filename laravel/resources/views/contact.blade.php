@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title', 'Get in touch?')
 @section('content')
-<h2>Contact</h2>
+<h3>Contact</h3>
 <div class="divider" data-content="Get in touch"></div>
 <div class="hero hero-lg bg-primary">
     <div class="hero-body">

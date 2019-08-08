@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<h1>{{ __('Sign up') }}</h1>
+<h3>{{ __('Sign up') }}</h3>
 <form method="POST" action="{{ route('register') }}">
     @csrf
     <div class="form-group">
