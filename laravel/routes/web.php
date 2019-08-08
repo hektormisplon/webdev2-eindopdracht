@@ -20,6 +20,7 @@ Route::get('/privacy-policy', 'PagesController@privacyPolicy');
 
 Route::resource('projects', 'ProjectController');
 Route::resource('profile', 'UserController');
+Route::resource('credits', 'CreditController');
 
 Route::get('/pledges', 'ProjectPledgeController@index');
 Route::get('/pledges/{pledge}', 'ProjectPledgeController@show');
