@@ -4,7 +4,7 @@ $off-canvas-breakpoint: $size-md !default;
 .off-canvas {
     display: flex;
     flex-flow: nowrap;
-    height: 100vh;
+    height: 100%;
     position: relative;
     width: 100%;
 
