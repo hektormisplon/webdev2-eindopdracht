@@ -2,7 +2,7 @@
     <a class="off-canvas-toggle btn btn-primary btn-action" href="#sidebar">
         <i class="icon icon-arrow-right"></i>
     </a>
-    <div class="off-canvas-sidebar bg-primary m-header" id="sidebar">
+    <div class="off-canvas-sidebar bg-primary" id="sidebar">
         <ul class="nav">
             <li class="nav-item">
                 <a class="text-light" href="/projects">Projects</a>
@@ -14,5 +14,5 @@
             </li>
         </ul>
     </div>
-    <a class="off-canvas-overlay m-header" href="#close"></a>
+    <a class="off-canvas-overlay" href="#close"></a>
 </div>
