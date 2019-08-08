@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Credit;
+use App\User;
 use Illuminate\Http\Request;
 
 class CreditController extends Controller
@@ -42,10 +42,10 @@ class CreditController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Credit  $credit
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Credit $credit)
+    public function show(User $user)
     {
         //
     }
@@ -53,35 +53,37 @@ class CreditController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Credit  $credit
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Credit $credit)
+    public function edit(User $user)
     {
-        return view('projects.edit', compact('project'));
+        $user = auth()->user();
+        return view('credits.edit', compact('user', $user));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Credit  $credit
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Credit $credit)
+    public function update(Request $request, User $user)
     {
         $user = auth()->user();
-        $user->update(['credit_amount' => request()->credit_amount]);
-        return redirect('/credits')->with('success', "{{ request()->credit_amount }} credits have been added to your account.");
+        $user->credit_amount += $request->creditAmount;
+        $user->save();
+        return redirect('/home')->with('success', 'You have added X creunits');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Credit  $credit
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Credit $credit)
+    public function destroy(User $user)
     {
         //
     }

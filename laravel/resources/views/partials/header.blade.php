@@ -11,7 +11,7 @@
             <div class="popover-container">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">10</h3>
+                        <h3 class="text-center">{{ auth()->user()->credit_amount }}</h3>
                         <div class="divider text-center" data-content="Credits"></div>
                     </div>
                     <div class="card-footer">
