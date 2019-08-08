@@ -11,8 +11,10 @@
         <p class="card-subtitle text-gray">{{$project->description}}</p>
         <p>{{$project->created_at}}</p>
         <p>Deadline: {{ $project->deadline }}</p>
+        @if($project->pledge)
         <meter class="meter" low="{{ $project->pledge->goal / 4 }}" high="{{ $project->pledge->goal / 2 }}" optimum="{{ $project->pledge->goal }}" value="{{ $project->pledge->pledged }}" min="0" max="{{ $project->pledge->goal }}"></meter>
         <small>{{ $project->pledge->pledged/$project->pledge->goal *100 }}% funded</small>
+        @endif
     </div>
     <div class="card-body">
         @if ($project->pledge)
