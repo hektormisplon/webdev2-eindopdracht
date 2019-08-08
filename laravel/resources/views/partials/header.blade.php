@@ -1,6 +1,6 @@
-<header class="header p-fixed navbar bg-light">
+<header class="header navbar bg-light">
     <section class="navbar-section">
-        <a href="/" class="navbar-brand">{{ config('app.name') }}</a>
+        <a href="@auth /home @endauth @guest / @endguest" class="navbar-brand">{{ config('app.name') }}</a>
     </section>
     <section class="navbar-center">
         @auth
@@ -27,7 +27,7 @@
         </div>
         @endauth
     </section>
-    <section class="navbar-section">
+    <section class="navbar-section hide-sm">
         <a href="/about" class="btn btn-link">About</a>
         <a href="/contact" class="btn btn-link">Contact</a>
         <a href="/news" class="btn btn-link">News</a>
