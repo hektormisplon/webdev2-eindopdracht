@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
-Route::get('/about', 'PagesController@about');
-Route::get('/contact', 'PagesController@contact');
-Route::get('/news', 'PagesController@news');
-Route::get('/privacy-policy', 'PagesController@privacyPolicy');
+Route::get('/', 'PageController@home');
+Route::get('/about', 'PageController@about');
+Route::get('/contact', 'PageController@contact');
+Route::get('/news', 'PageController@news');
+Route::get('/privacy-policy', 'PageController@privacyPolicy');
+Route::get('/terms-conditions', 'PageController@terms');
 
 
 Route::resource('projects', 'ProjectController');
@@ -30,7 +31,6 @@ Route::patch('/projects/{project}/pledge', 'ProjectPledgeController@store');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
-
 
 Route::group(['middleware' => ['auth', 'can:admin']], function () {
     Route::get('/account', 'AccountController@index');
