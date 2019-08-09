@@ -1096,6 +1096,12 @@ legend {
   padding: 0.35rem 0.6rem;
 }
 
+.form-input.input-primary {
+  height: 3.2rem;
+  border-color: #cda1e8;
+  font-size: 2.4rem;
+}
+
 .form-input.input-inline {
   display: inline-block;
   vertical-align: middle;
@@ -4269,7 +4275,7 @@ a.text-error:visited {
   flex-flow: nowrap;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 6rem);
 }
 
 .off-canvas .off-canvas-toggle {
