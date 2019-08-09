@@ -25,7 +25,7 @@ class PageController extends Controller
 
     public function news()
     {
-        return view('base', ['news' => News::orderBy('created_at', 'desc')->paginate(3)]);
+        return view('news', ['news' => News::orderBy('created_at', 'desc')->paginate(3)]);
     }
 
     public function privacyPolicy()
