@@ -71,6 +71,12 @@ legend {
     padding: $control-padding-y-lg $control-padding-x-lg;
   }
 
+  &.input-primary {
+    height: $unit-16;
+    border-color: $secondary-color;
+    font-size: $unit-12;
+  }
+
   &.input-inline {
     display: inline-block;
     vertical-align: middle;
