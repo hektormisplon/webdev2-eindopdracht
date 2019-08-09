@@ -2,11 +2,6 @@
 @section('content')
 <h3>Projects</h3>
 <div class="divider pb-2" data-content="Projects overview"></div>
-@if(session('message'))
-<div class="toast toast-success">
-    {{ session('message') }}
-</div>
-@endif
 @if(count($projects) > 0)
 @foreach($projects as $project)
 <div class="tile">
@@ -21,7 +16,7 @@
         <div class="d-flex">
             <div class="tile-title text-bold">{{$project->title}}</div>
             <div class="divider-vert"></div>
-            <small class="tile-subtitle text-gra                                    y">{{$project->created_at->format('M j Y | g:i')}}</small>
+            <small class="tile-subtitle text-gray">{{$project->created_at->format('M j Y | g:i')}}</small>
         </div>
         @if($project->pledge)
         <meter class="meter meter-sm" low="{{ $project->pledge->goal / 4 }}" high="{{ $project->pledge->goal / 2 }}" optimum="{{ $project->pledge->goal }}" value="{{ $project->pledge->pledged }}" min="0" max="{{ $project->pledge->goal }}"></meter>

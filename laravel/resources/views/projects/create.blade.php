@@ -2,8 +2,30 @@
 @extends('layout')
 @section('content')
 <h3>New project</h3>
-<div class="divider" data-content="Publish a new project"></div>
+<div class="divider" data-content="Pledge details"></div>
 <form method="post" action="{{ route('projects.store') }}">
+    <div class="form-group">
+        @csrf
+        <label class="form-label" for="name">Pledge goal</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="icon icon-3x text-secondary" data-feather="package"></i>
+            </span>
+            <input type="number" class="form-input input-primary @error('goal') is-error @enderror" name="goal" value="{{ old('goal') }}" />
+            @error('goal')
+            <div class="toast toast-error">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group">
+        @csrf
+        <label class="form-label" for="name">Deadline</label>
+        <input type="date" class="form-input @error('goal') is-error @enderror" name="deadline" value="{{ old('deadline') }}" />
+        @error('deadline')
+        <div class="toast toast-error">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="divider" data-content="Project details"></div>
     <div class="form-group">
         @csrf
         <label class="form-label" for="name">Title</label>
@@ -19,20 +41,19 @@
         <div class="toast toast-error">{{ $message }}</div>
         @enderror
     </div>
-    <!-- <div class="form-group">
-        <label class="form-label" for="goal">Pledge goal</label>
-        <input class="form-input @error('goal') is-error @enderror" type="number" name="goal" value="{{ old('goal') }}" />
-        @error('goal')
+    <div class="form-group">
+        @csrf
+        <label class="form-label" for="name">Category</label>
+        <select class="form-select">
+            <option></option>
+            <option>Category 1</option>
+            <option>Category 2</option>
+            <option>Category 3</option>
+        </select>
+        @error('category')
         <div class="toast toast-error">{{ $message }}</div>
         @enderror
     </div>
-    <div class="form-group">
-        <label class="form-label" for="deadline">Deadline</label>
-        <input class="form-input @error('deadline') is-error @enderror" type="date" name="deadline" value="{{ old('deadline') }}" />
-        @error('deadline')
-        <div class="toast toast-error">{{ $message }}</div>
-        @enderror
-    </div> -->
     <button type="submit" class="btn btn-primary">Publish</button>
 </form>
 @endsection
