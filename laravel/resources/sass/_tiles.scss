@@ -1,38 +1,42 @@
 // Tiles
 .tile {
-  align-content: space-between;
-  align-items: flex-start;
-  display: flex;
+    align-content: space-between;
+    align-items: flex-start;
+    display: flex;
+    margin: $unit-1 0 $unit-8 0;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    padding: $layout-spacing-lg;
 
-  .tile-icon,
-  .tile-action {
-    flex: 0 0 auto;
-  }
-  .tile-content {
-    flex: 1 1 auto;
-    &:not(:first-child) {
-      padding-left: $unit-2;
+    .tile-icon,
+    .tile-action {
+        flex: 0 0 auto;
     }
-    &:not(:last-child) {
-      padding-right: $unit-2;
-    }
-  }
-  .tile-title,
-  .tile-subtitle {
-    line-height: $line-height;
-  }
-
-  &.tile-centered {
-    align-items: center;
-
     .tile-content {
-      overflow: hidden;
+        flex: 1 1 auto;
+        &:not(:first-child) {
+            padding-left: $unit-2;
+        }
+        &:not(:last-child) {
+            padding-right: $unit-2;
+        }
     }
-
     .tile-title,
     .tile-subtitle {
-      @include text-ellipsis();
-      margin-bottom: 0;
+        line-height: $line-height;
     }
-  }
+
+    &.tile-centered {
+        align-items: center;
+
+        .tile-content {
+            overflow: hidden;
+        }
+
+        .tile-title,
+        .tile-subtitle {
+            @include text-ellipsis();
+            margin-bottom: 0;
+        }
+    }
 }
