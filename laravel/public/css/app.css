@@ -2902,7 +2902,7 @@ summary.accordion-header::-webkit-details-marker {
   display: flex;
   list-style: none;
   margin: 0.2rem 0;
-  padding: 0.2rem 0;
+  justify-content: center;
 }
 
 .pagination .page-item {
@@ -2914,27 +2914,34 @@ summary.accordion-header::-webkit-details-marker {
   padding: 0.2rem 0.2rem;
 }
 
-.pagination .page-item a {
+.pagination .page-item .page-link {
   border-radius: 0.1rem;
   display: inline-block;
   padding: 0.2rem 0.4rem;
   text-decoration: none;
 }
 
-.pagination .page-item a:focus,
-.pagination .page-item a:hover {
-  color: #7427a3;
+.pagination .page-item .page-link:focus,
+.pagination .page-item .page-link:hover {
+  background: #7427a3;
+  color: #fff;
 }
 
-.pagination .page-item.disabled a {
+.pagination .page-item.disabled .page-link {
   cursor: default;
   opacity: 0.5;
   pointer-events: none;
 }
 
-.pagination .page-item.active a {
-  background: #7427a3;
-  color: #fff;
+.pagination .page-item.active .page-link {
+  font-weight: 700;
+  border: 1px solid #7427a3;
+  color: #7427a3;
+}
+
+.pagination .page-item.active :hover {
+  background: #fff;
+  color: #bcc3ce;
 }
 
 .pagination .page-item.page-prev,
@@ -3167,6 +3174,10 @@ summary.accordion-header::-webkit-details-marker {
   align-content: space-between;
   align-items: flex-start;
   display: flex;
+  margin: 0.2rem 0 1.6rem 0;
+  border: 0.05rem solid #dadee4;
+  border-radius: 0.1rem;
+  padding: 0.8rem;
 }
 
 .tile .tile-icon,

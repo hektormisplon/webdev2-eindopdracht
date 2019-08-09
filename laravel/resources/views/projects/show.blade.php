@@ -38,12 +38,12 @@
         <button class="btn btn-danger" type="submit">Delete</button>
     </form>
 </div>
-@foreach($project->comments as $comment)
 <div class="mt-2 panel">
     <div class="panel-header">
         <div class="panel-title">Comments</div>
     </div>
     <div class="panel-body">
+        @foreach($project->comments as $comment)
         <div class="tile">
             <div class="tile-icon tooltip tooltip-right" data-tooltip="{{ $comment->created_at->format("M j Y | g:i") }}">
                 <div class="example-tile-icon">
@@ -55,12 +55,12 @@
                 <p class="tile-subtitle">{{ $comment->message}}</p>
             </div>
         </div>
+        @endforeach
     </div>
     <div class="panel-footer">
         <div class="input-group">
             <input class="form-input" type="text" placeholder="Leave a comment...">
-            <button class="btn btn-primary input-group-btn">Comment</button>
+            <button class="btn btn-primary input-group-btn">Send</button>
         </div>
     </div>
-    @endforeach
     @endsection

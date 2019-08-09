@@ -11,7 +11,7 @@
             <span class="input-group-addon">
                 <i class="icon icon-3x text-secondary" data-feather="package"></i>
             </span>
-            <input type="number" class="form-input input-primary @error('goal') is-error @enderror" name="goal" value="{{ old('goal') }}" />
+            <input type="number" placeholder="0" class="form-input input-primary @error('goal') is-error @enderror" name="goal" value="{{ old('goal') }}" />
             @error('goal')
             <div class="toast toast-error">{{ $message }}</div>
             @enderror
@@ -51,6 +51,14 @@
             <option>Category 3</option>
         </select>
         @error('category')
+        <div class="toast toast-error">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-group">
+        @csrf
+        <label class="form-label" for="info">Info</label>
+        <textarea class="form-input @error('info') is-error @enderror" name="info" rows="3" maxlength="500" value="{{ old('info') }}"></textarea>
+        @error('info')
         <div class="toast toast-error">{{ $message }}</div>
         @enderror
     </div>

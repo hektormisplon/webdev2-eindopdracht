@@ -58,7 +58,7 @@
     </style>
 </head>
 
-<body class="layout-container">
+<body class="layout-container of-hidden">
     @include('partials.header')
     <div class="content-container">
         <div class="columns">
