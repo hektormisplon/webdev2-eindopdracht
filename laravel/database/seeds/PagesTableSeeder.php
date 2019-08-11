@@ -2,6 +2,7 @@
 
 use App\Page;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class PagesTableSeeder extends Seeder
 {
@@ -10,32 +11,32 @@ class PagesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         $pages = [
             [
                 'path' => 'about',
                 'title' => 'About',
                 'subtitle' => 'Get to know us',
-                'body' => 'This is the about page content',
+                'body' => $faker->sentence(20)
             ],
             [
                 'path' => 'contact',
-                'title' => 'Get in touch',
-                'subtitle' => 'Contact sub',
-                'body' => 'This is the contact page content',
+                'title' => 'Contact',
+                'subtitle' => 'Get in touch',
+                'body' => $faker->sentence(20)
             ],
             [
                 'path' => 'privacy-policy',
-                'title' => 'Our privacy policy',
-                'subtitle' => 'Privacy policy sub',
-                'body' => 'This is the privacy policy page content',
+                'title' => 'Privacy policy',
+                'subtitle' => 'Our privacy policy',
+                'body' => $faker->sentence(80)
             ],
             [
                 'path' => 'terms-conditions',
                 'title' => 'Terms & conditions',
                 'subtitle' => 'Terms & conditions sub',
-                'body' => 'This is the terms & conditions page content',
+                'body' => $faker->sentence(80)
             ],
         ];
         foreach ($pages as $page) {
