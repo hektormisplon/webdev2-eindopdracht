@@ -1,8 +1,5 @@
 @extends('layout')
 @section('content')
-<a class="dropdown-item" href="{{ route('profile.index') }}">
-    View profile
-</a>
 <div class="card">
     <div class="card-header">
         <h3>{{ auth()->user()->email }}</h3>
