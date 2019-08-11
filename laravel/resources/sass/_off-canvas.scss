@@ -22,6 +22,7 @@ $off-canvas-breakpoint: $size-md !default;
 
         &:hover {
             transform: translateX($layout-spacing);
+            background: $primary-color;
         }
     }
 
