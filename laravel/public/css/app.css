@@ -4300,6 +4300,7 @@ a.text-error:visited {
 
 .off-canvas .off-canvas-toggle:hover {
   transform: translateX(0.4rem);
+  background: #7427a3;
 }
 
 .off-canvas .off-canvas-sidebar {
