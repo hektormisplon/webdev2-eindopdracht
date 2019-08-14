@@ -18,7 +18,7 @@ class ProjectTest extends TestCase
         // When passing required data to creation endpoint 
         $attributes = [
             'title' => 'Non verified user project',
-            'description' => 'Project created by non verified user.'
+            'description' => 'Project created by non verified user.',
         ];
 
         $this->post(route('projects.store'), $attributes);
@@ -27,18 +27,16 @@ class ProjectTest extends TestCase
         $this->assertDatabaseMissing('projects', $attributes);
     }
 
-    /** @test */
     public function createProjectAsVerifiedUser()
     {
-        $this->withoutExceptionHandling();
-
         // Given activated user
         $this->actingAs(factory('App\User', 'verified')->create());
 
         // When passing required data to creation endpoint 
         $attributes = [
             'title' => 'Project title',
-            'description' => 'Lorem ipsum dolor sit.'
+            'description' => 'Lorem ipsum dolor sit.',
+            'deadline' => date('Y-m-d G:i:s')
         ];
 
         $this->post(route('projects.store'), $attributes);
