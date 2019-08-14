@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\Pledge;
 use App\Events\ProjectPublished;
 
 class ProjectController extends Controller
@@ -28,15 +29,20 @@ class ProjectController extends Controller
 
     public function store()
     {
-        $this->authorize('create');
-        $attributes = request()->validate([
+        // $this->authorize('create');
+        $projectAttributes = request()->validate([
             'title' => ['required', 'min:3'],
-            'description' => ['required', 'min:15']
+            'description' => ['required', 'min:15'],
         ]);
-        $attributes['owner_id'] = auth()->id();
-        Project::create($attributes);
-        session()->flash('message', 'Your project has been published.');
-        return redirect('/projects');
+        $projectAttributes['owner_id'] = auth()->id();
+        $project = Project::create($projectAttributes);
+
+        $pledgeAttributes = request()->validate([
+            'goal' => ['required', 'numeric'],
+        ]);
+        $pledgeAttributes['project_id'] = $project->id;
+        $pledge = Pledge::create($pledgeAttributes);
+        return redirect('projects/' . $project->id)->with('message', 'Your project has been published.');
     }
 
     public function show(Project $project)

@@ -1,9 +1,14 @@
+.layout-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
 // Layout
-.container {
+.content-container {
+    flex: 1;
     margin: 0;
     padding: 0;
-    // padding-left: $layout-spacing;
-    // padding-right: $layout-spacing;
     width: 100%;
 
     $grid-spacing: ($layout-spacing / ($layout-spacing * 0 + 1)) *

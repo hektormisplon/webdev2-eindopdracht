@@ -1,19 +1,13 @@
-<footer class='navbar'>
-    <section class='navbar-primary'>
-        <a class='btn btn-link' href="/about">About</a>
-        <a class='btn btn-link' href="/contact">Contact</a>
-        <a class='btn btn-link' href="/news">News</a>
-    </section>
+<footer class='navbar p-centered hide-sm'>
     <section class='navbar-section'>
-        <p>&copy; {{ date('Y') }} | {{ config('app.name') }} </p>
-        <a href="/terms-of-use">Terms of use</a>
-        <a href="/privacy-policy">Privacy policy</a>
-        <!-- <p>Street name 7, 9000 Ghent, Belgium</p> -->
-    </section>
-    <section class='navbar-section'>
-        <a class="btn btn-link" href="#">Facebook</a>
-        <a class="btn btn-link" href="#">Twitter</a>
-        <a class="btn btn-link" href="#">Instagram</a>
-        <a class="btn btn-link" href="#">Youtube</a>
+        <sub>
+            <a href="/terms-conditions">Terms of use</a>
+        </sub>
+        <div class="divider-vert"></div>
+        <sub>&copy; {{ date('Y') }} | {{ config('app.name') }} </sub>
+        <div class="divider-vert"></div>
+        <sub>
+            <a href="/privacy-policy">Privacy policy</a>
+        </sub>
     </section>
 </footer>

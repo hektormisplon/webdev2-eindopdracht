@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<div class="panel m-header">
+<div class="panel">
     <div class="panel-header text-center">
         <figure class="avatar avatar-xl"> <img src="/storage/avatars/{{ $user->avatar }}" /></figure>
         @if ($user->name)
