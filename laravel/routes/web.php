@@ -19,9 +19,9 @@ Route::get('/privacy-policy', 'PageController@privacyPolicy');
 Route::get('/terms-conditions', 'PageController@terms');
 
 
-Route::resource('projects', 'ProjectController');
 Route::resource('profile', 'UserController');
 Route::resource('credits', 'CreditController');
+Route::resource('projects', 'ProjectController');
 
 Route::get('/pledges', 'ProjectPledgeController@index');
 Route::get('/pledges/{pledge}', 'ProjectPledgeController@show');
@@ -29,6 +29,9 @@ Route::patch('/pledges/{pledge}', 'ProjectPledgeController@update');
 Route::patch('/projects/{project}/pledge', 'ProjectPledgeController@store');
 
 Auth::routes();
+
+Route::get('stripe', 'PaymentController@getStripeForm');
+Route::post('stripe', 'PaymentController@postStripePayment')->name('stripe.post');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
