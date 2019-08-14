@@ -1,9 +1,10 @@
 .header {
     top: 0;
     left: 0;
-    height: 3rem;
+    min-height: 9vh;
     width: 100%;
     padding: 0 $layout-spacing;
+    // padding: 0 $layout-spacing;
 }
 
 .m-header {

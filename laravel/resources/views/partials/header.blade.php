@@ -1,6 +1,8 @@
 <header class="header navbar bg-light">
     <section class="navbar-section">
-        <a href="@auth /home @endauth @guest / @endguest" class="navbar-brand">{{ config('app.name') }}</a>
+        <a href="@auth /home @endauth @guest / @endguest" class="navbar-brand">    
+            <img src="{{ asset('assets/logo.svg') }}" alt="">
+        </a>
     </section>
     <section class="navbar-center">
         @auth
