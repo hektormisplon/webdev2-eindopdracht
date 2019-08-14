@@ -42,7 +42,7 @@ $link-color-light: lighten($link-color, 10%) !default;
 
 // Fonts
 
-$base-font-family: "DM Sans", -apple-system, system-ui, BlinkMacSystemFont,
+$base-font-family: "Inter", -apple-system, system-ui, BlinkMacSystemFont,
     "Segoe UI", Roboto !default;
 $mono-font-family: "SF Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Courier,
     monospace !default;
@@ -74,7 +74,7 @@ $unit-12: 2.4rem !default;
 $unit-16: 3.2rem !default;
 
 // Font sizes
-$html-font-size: 20px !default;
+$html-font-size: 18px !default;
 $html-line-height: 1.5 !default;
 $font-size: 0.8rem !default;
 $font-size-sm: 0.7rem !default;

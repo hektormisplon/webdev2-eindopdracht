@@ -1,7 +1,7 @@
 @section('title', 'Create project')
 @extends('layout')
 @section('content')
-<h3>New project</h3>
+<h3 class="text-bold">New project</h3>
 <div class="divider" data-content="Pledge details"></div>
 <form method="post" action="{{ route('projects.store') }}">
     <div class="form-group">

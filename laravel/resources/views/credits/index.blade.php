@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<h3>My credits</h3>
+<h3 class="text-bold">My credits</h3>
 <a href="{{ route('credits.edit', $user->id) }}">Buy credits</a>
 <div class="panel column col-mr-auto">
     <table class="table">

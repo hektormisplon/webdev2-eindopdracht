@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<h3>Edit project</h3>
+<h3 class="text-bold">Edit project</h3>
 @if ($errors->any())
 @foreach ($errors->all() as $error)
 <div class="toast toast-error">{{ $error }}</div>

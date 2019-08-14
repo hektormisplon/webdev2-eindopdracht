@@ -1,5 +1,5 @@
 @extends('layout')
 @section('content')
-<h3>News</h3>
+<h3 class="text-bold">News</h3>
 
 @endsection

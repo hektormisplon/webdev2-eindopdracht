@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<h3>Buy creunits</h3>
+<h3 class="text-bold">Buy creunits</h3>
 <div class="divider" data-content="Buy creunits"></div>
 <div class="columns">
     <div class="panel column col-auto col-mr-auto">

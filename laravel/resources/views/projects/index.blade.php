@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<h3>Projects</h3>
+<h3 class="text-bold">Projects</h3>
 <div class="divider pb-2" data-content="Projects overview"></div>
 @if(count($projects) > 0)
 @foreach($projects as $project)
@@ -19,7 +19,14 @@
             <small class="tile-subtitle text-gray">{{$project->created_at->format('M j Y | g:i')}}</small>
         </div>
         @if($project->pledge)
-        <meter class="meter meter-sm" low="{{ $project->pledge->goal / 4 }}" high="{{ $project->pledge->goal / 2 }}" optimum="{{ $project->pledge->goal }}" value="{{ $project->pledge->pledged }}" min="0" max="{{ $project->pledge->goal }}"></meter>
+        <meter
+            class="meter meter-sm" low="{{ $project->pledge->goal / 4 }}" 
+            high="{{ $project->pledge->goal / 2 }}" 
+            optimum="{{ $project->pledge->goal }}" 
+            value="{{ $project->pledge->pledged }}" 
+            min="0" 
+            max="{{ $project->pledge->goal }}">
+        </meter>
         @endif
         <p class="tile-subtitle mt-2">{{ $project->description }}</p>
     </div>
@@ -32,7 +39,7 @@
 @endforeach
 @else
 <div class="empty">
-    <h3 class="empty-title">You have no projects.</h3>
+    <h5 class="empty-title">You have no projects.</h5>
     <p class="empty-subtitle">Would you like to create a new project?</p>
     <div class="empty-action">
         <a class="btn btn-primary" href="/projects/create">Create project</a>
