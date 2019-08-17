@@ -37,7 +37,7 @@
         <h3 class="card-title">{{$project->title}}</h3>
         <p class="card-subtitle text-gray">{{$project->description}}</p>
         <p class="float-left">{{$project->created_at->format('d M y')}}</p>
-        <p class="float-right">{{ $project->deadline }}</p>
+        <p class="float-right">{{ $project->deadline->format('d M y') }}</p>
         @if($project->pledge)
         <meter class="meter" low="{{ $project->pledge->goal / 4 }}" high="{{ $project->pledge->goal / 2 }}" optimum="{{ $project->pledge->goal }}" value="{{ $project->pledge->pledged }}" min="0" max="{{ $project->pledge->goal }}"></meter>
         <small>{{ $project->pledge->pledged/$project->pledge->goal *100 }}% funded</small>

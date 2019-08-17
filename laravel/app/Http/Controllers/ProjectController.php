@@ -33,6 +33,7 @@ class ProjectController extends Controller
         $projectAttributes = request()->validate([
             'title' => ['required', 'min:3'],
             'description' => ['required', 'min:15'],
+            'deadline' => ['required']
         ]);
         $projectAttributes['owner_id'] = auth()->id();
         $project = Project::create($projectAttributes);
