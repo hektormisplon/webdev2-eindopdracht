@@ -18,7 +18,9 @@ Route::get('about', 'PageController@about');
 Route::get('contact', 'PageController@contact');
 Route::get('privacy-policy', 'PageController@privacyPolicy');
 Route::get('terms-conditions', 'PageController@terms');
-Route::resource('discover', 'DiscoveryController');
+
+Route::get('discover/{category}', 'DiscoveryController@index');
+Route::get('discover', 'DiscoveryController@index');
 Route::resource('news', 'NewsController');
 
 Auth::routes(['verify' => true]);

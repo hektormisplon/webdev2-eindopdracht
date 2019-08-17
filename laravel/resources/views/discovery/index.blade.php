@@ -3,13 +3,11 @@
 <h3 class="text-bold">Projects</h3>
 <div class="divider pb-2" data-content="Projects overview"></div>
 
-{{-- <select type="text" class="form-select">
-    @foreach($categories as $category)
-        <option>{{ $category->name }}</option>
-    @endforeach
-</select> --}}
-
 @if(count($projects) > 0)
+<a href="/discover" class="btn">all</a>
+@foreach($categories as $category)
+    <a href="/discover/{{ $category->name }}" class="btn">{{ $category->name }}</a>
+@endforeach
 @foreach($projects as $project)
 <div class="tile">
     <div class="tile-content">

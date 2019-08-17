@@ -20,7 +20,7 @@ class CategorySeeder extends Seeder
                 'name' => 'marketing',
             ],
             [
-                'name' => 'digital design',
+                'name' => 'design',
             ]
         ];
         foreach ($categories as $category) {
