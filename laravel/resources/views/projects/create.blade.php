@@ -35,7 +35,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <label class="form-label" for="descriptioon">Description</label>
+        <label class="form-label" for="description">Description</label>
         <input class="form-input @error('description') is-error @enderror" type="text" name="description" value="{{ old('description') }}" />
         @error('description')
         <div class="toast toast-error">{{ $message }}</div>
@@ -44,11 +44,10 @@
     <div class="form-group">
         @csrf
         <label class="form-label" for="name">Category</label>
-        <select class="form-select">
-            <option></option>
-            <option>Category 1</option>
-            <option>Category 2</option>
-            <option>Category 3</option>
+        <select class="form-select" name="category">
+            @foreach($categories as $category)
+            <option>{{ $category->name }}</option>
+            @endforeach
         </select>
         @error('category')
         <div class="toast toast-error">{{ $message }}</div>
