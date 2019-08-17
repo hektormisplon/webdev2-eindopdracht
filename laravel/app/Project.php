@@ -13,6 +13,14 @@ class Project extends Model
         'created' => ProjectPublished::class
     ];
 
+    /**
+     * Date mutator
+     * - Format dates for db
+     */
+    protected $dates = [
+        'deadline',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(User::class);
