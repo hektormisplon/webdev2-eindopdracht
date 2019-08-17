@@ -58,6 +58,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
+                <a href="/home" class="btn">Go home</a>
                 <div class="panel panel-default credit-card-box">
                     <div class="panel-heading display-table" >
                         <div class="row display-tr" >

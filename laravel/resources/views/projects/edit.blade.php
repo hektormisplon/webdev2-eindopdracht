@@ -6,6 +6,7 @@
 <div class="toast toast-error">{{ $error }}</div>
 @endforeach
 @endif
+
 <form method="post" action="{{ route('projects.update', $project->id) }}">
   @method('PATCH')
   @csrf
