@@ -12,11 +12,25 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        /**
-         * TODO:
-         * create admin user
-         * create new user
-         * create verified user
-         */
+        $users = [
+            [
+                'email' => 'admin@mail.com',
+                'password' => bcrypt('password'),
+                'role' => 'admin',
+                'email_verified_at' => now(),
+            ],
+            [
+                'email' => 'user@mail.com',
+                'password' => bcrypt('password'),
+                'email_verified_at' => now(),
+            ],
+            [
+                'email' => 'nonverified@mail.com',
+                'password' => bcrypt('password'),
+            ],
+        ];
+        foreach ($users as $user) {
+            User::create($user);
+        }
     }
 }
