@@ -43,6 +43,21 @@
                     </li>
                 </ul>
             </li>
+            @if(auth()->user()->isAdmin())
+            <li class="nav-item">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <i class="icon icon-2x" data-feather="zap"></i>
+                        <h6 class="text-bold">
+                            Admin
+                        </h6>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-light" href="/account">Manage accounts</a>
+                    </li>
+                </ul>
+            </li>
+            @endif
         </ul>
     </div>
     <a class="off-canvas-overlay" href="#close"></a>

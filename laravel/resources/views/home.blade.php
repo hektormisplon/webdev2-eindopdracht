@@ -2,10 +2,14 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3>{{ auth()->user()->email }}</h3>
+        <h3>
+            @if(auth()->user()->role == 'admin')
+            <i class="icon icon-3x" data-feather="zap"></i>
+            @endif
+            {{ auth()->user()->email }}
+        </h3>
     </div>
     <div class="card-body">
-        {{ auth()->user()->role }}
     </div>
 </div>
 @endsection
