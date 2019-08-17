@@ -7,13 +7,13 @@
             <li class="nav-item">
                 <ul class="nav">
                     <li class="nav-item">
-                        <h6 class="text-bold">Projects</h6>
+                        <h6 class="text-bold">My projects</h6>
                     </li>
                     <li class="nav-item">
                         <a class="text-light" href="/projects/create">Create project</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light" href="/projects">My projects</a>
+                        <a class="text-light" href="/projects">Manage projects</a>
                     </li>
                 </ul>
             </li>
