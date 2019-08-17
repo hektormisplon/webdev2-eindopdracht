@@ -11,6 +11,8 @@
 |
 */
 
+// TODO: email verification middleware
+
 Route::get('/', 'PageController@home');
 Route::get('/about', 'PageController@about');
 Route::get('/contact', 'PageController@contact');
@@ -28,7 +30,8 @@ Route::get('/pledges/{pledge}', 'ProjectPledgeController@show');
 Route::patch('/pledges/{pledge}', 'ProjectPledgeController@update');
 Route::patch('/projects/{project}/pledge', 'ProjectPledgeController@store');
 
-Auth::routes();
+// Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('stripe', 'PaymentController@getStripeForm');
 Route::post('stripe', 'PaymentController@postStripePayment')->name('stripe.post');
