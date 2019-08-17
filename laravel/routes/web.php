@@ -16,17 +16,19 @@
 Route::get('/', 'PageController@home');
 Route::get('/about', 'PageController@about');
 Route::get('/contact', 'PageController@contact');
-Route::get('/news', 'PageController@news');
 Route::get('/privacy-policy', 'PageController@privacyPolicy');
 Route::get('/terms-conditions', 'PageController@terms');
-
+Route::resource('news', 'NewsController');
 
 Auth::routes(['verify' => true]);
+
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('profile', 'UserController');
     Route::resource('credits', 'CreditController');
+
+    Route::get('projects/{category}', 'ProjectController@index');
     Route::resource('projects', 'ProjectController');
 
     Route::get('/pledges', 'ProjectPledgeController@index');
