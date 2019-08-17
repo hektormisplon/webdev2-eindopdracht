@@ -5,10 +5,41 @@
     <div class="off-canvas-sidebar bg-primary" id="sidebar">
         <ul class="nav">
             <li class="nav-item">
-                <a class="text-light" href="/projects">Projects</a>
                 <ul class="nav">
                     <li class="nav-item">
+                        <h6>Projects</h6>
+                    </li>
+                    <li class="nav-item">
                         <a class="text-light" href="/projects/create">Create project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-light" href="/projects">My projects</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <h6>Credits</h6>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-light" href="/credits">My credits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-light" href="/credits">Buy credits</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <h6>Discover</h6>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-light" href="/news">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-light" href="/about">About</a>
                     </li>
                 </ul>
             </li>
