@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\Category;
 use App\Pledge;
 use App\Events\ProjectPublished;
 
@@ -24,7 +25,8 @@ class ProjectController extends Controller
 
     public function create()
     {
-        return view('projects.create');
+        $categories = Category::all();
+        return view('projects.create', compact('categories'));
     }
 
     public function store()
@@ -33,9 +35,14 @@ class ProjectController extends Controller
         $projectAttributes = request()->validate([
             'title' => ['required', 'min:3'],
             'description' => ['required', 'min:15'],
-            'deadline' => ['required']
+            'info' => ['required', 'min:100'],
+            'deadline' => ['required'],
         ]);
+
+        $category_id = Category::where('name', request('category'))->first()->id;
+
         $projectAttributes['owner_id'] = auth()->id();
+        $projectAttributes['category_id'] = $category_id;
         $project = Project::create($projectAttributes);
 
         $pledgeAttributes = request()->validate([
