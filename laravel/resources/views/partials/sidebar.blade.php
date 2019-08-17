@@ -7,7 +7,7 @@
             <li class="nav-item">
                 <ul class="nav">
                     <li class="nav-item">
-                        <h6>Projects</h6>
+                        <h6 class="text-bold">Projects</h6>
                     </li>
                     <li class="nav-item">
                         <a class="text-light" href="/projects/create">Create project</a>
@@ -20,7 +20,7 @@
             <li class="nav-item">
                 <ul class="nav">
                     <li class="nav-item">
-                        <h6>Credits</h6>
+                        <h6 class="text-bold">Credits</h6>
                     </li>
                     <li class="nav-item">
                         <a class="text-light" href="/credits">My credits</a>
@@ -33,7 +33,7 @@
             <li class="nav-item">
                 <ul class="nav">
                     <li class="nav-item">
-                        <h6>Discover</h6>
+                        <h6 class="text-bold">Discover</h6>
                     </li>
                     <li class="nav-item">
                         <a class="text-light" href="/news">News</a>
