@@ -6,57 +6,60 @@
         <ul class="nav">
             <li class="nav-item">
                 <ul class="nav">
-                    <li class="nav-item">
+                    <li class="nav-header">
+                        <i class="icon icon-2x" data-feather="briefcase"></i>
                         <h6 class="text-bold">My projects</h6>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light" href="/projects/create">Create project</a>
+                        <a class="btn btn-light" href="/projects/create">Create project</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light" href="/projects">Manage projects</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <h6 class="text-bold">Credits</h6>
-                    </li>
-                    <li class="nav-item">
-                        <a class="text-light" href="/credits">My credits</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="text-light" href="/credits">Buy credits</a>
+                        <a class="btn btn-light" href="/projects">Manage projects</a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item">
                 <ul class="nav">
+                    <li class="nav-header">
+                        <i class="icon icon-2x" data-feather="package"></i>
+                        <h6 class="text-bold">Creunits</h6>
+                    </li>
                     <li class="nav-item">
+                        <a class="btn btn-light" href="/credits">My creunits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-light" href="/credits">Buy creunits</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <ul class="nav">
+                    <li class="nav-header">
+                        <i class="icon icon-2x" data-feather="wind"></i>
                         <h6 class="text-bold">Discover</h6>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light" href="/discover">Projects</a>
+                        <a class="btn btn-light" href="/discover">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light" href="/news">News</a>
+                        <a class="btn btn-light" href="/news">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light" href="/about">About</a>
+                        <a class="btn btn-light" href="/about">About us</a>
                     </li>
                 </ul>
             </li>
             @if(auth()->user()->isAdmin())
             <li class="nav-item">
                 <ul class="nav">
-                    <li class="nav-item">
+                    <li class="nav-header">
                         <i class="icon icon-2x" data-feather="zap"></i>
                         <h6 class="text-bold">
                             Admin
                         </h6>
                     </li>
                     <li class="nav-item">
-                        <a class="text-light" href="/account">Manage accounts</a>
+                        <a class="btn btn-light" href="/account">Manage accounts</a>
                     </li>
                 </ul>
             </li>
