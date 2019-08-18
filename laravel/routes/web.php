@@ -19,6 +19,7 @@ Route::get('contact', 'PageController@contact');
 Route::get('privacy-policy', 'PageController@privacyPolicy');
 Route::get('terms-conditions', 'PageController@terms');
 
+Route::get('discover/details/{id}', 'DiscoveryController@show');
 Route::get('discover/{category}', 'DiscoveryController@index');
 Route::get('discover', 'DiscoveryController@index');
 Route::resource('news', 'NewsController');
