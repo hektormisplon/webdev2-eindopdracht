@@ -18,6 +18,22 @@
     <label class="form-label" for="description">Description</label>
     <textarea type="text" class="form-input" name="description">{{ $project->description }}</textarea>
   </div>
+  <div class="form-group">
+      @csrf
+      <label class="form-label" for="name">Category</label>
+      <select class="form-select" name="category">
+          @foreach($categories as $category)
+          <option>{{ $category->name }}</option>
+          @endforeach
+      </select>
+      @error('category')
+      <div class="toast toast-error">{{ $message }}</div>
+      @enderror
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="info">Info</label>
+    <textarea type="text" class="form-input" name="info">{{ $project->info }}</textarea>
+  </div>
   <button type="submit" class="btn btn-primary">Save</button>
 </form>
 @endsection
