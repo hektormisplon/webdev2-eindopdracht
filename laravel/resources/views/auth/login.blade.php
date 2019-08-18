@@ -2,7 +2,7 @@
 
 @section('content')
 <h3 class="text-bold">{{ __('Sign in') }}</h3>
-<form method="POST" action="{{ route('login') }}">
+<form class="form" method="POST" action="{{ route('login') }}">
     @csrf
     <div class="form-group">
         <label class="form-label" for="email">{{ __('Email') }}</label>
