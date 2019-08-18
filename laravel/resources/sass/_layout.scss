@@ -48,8 +48,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
 }
 .column {
+    width: 100%;
     max-width: 60rem;
     padding-left: $layout-spacing;
     padding-right: $layout-spacing;

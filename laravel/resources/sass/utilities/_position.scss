@@ -21,6 +21,14 @@
 
 .p-fixed {
     position: fixed !important;
+
+    &.-top {
+        top: $unit-16;
+    }
+
+    &.-right {
+        right: 0;
+    }
 }
 
 .p-sticky {
