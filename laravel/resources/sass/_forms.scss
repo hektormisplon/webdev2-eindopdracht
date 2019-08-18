@@ -427,9 +427,6 @@ textarea.form-input {
             border-top-left-radius: 0;
             margin-left: -$border-width;
         }
-        &:focus {
-            z-index: $zindex-0 + 1;
-        }
     }
 
     .form-select {
