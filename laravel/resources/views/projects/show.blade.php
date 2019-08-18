@@ -5,30 +5,26 @@
     {{ session('message') }}
 </div>
 @endif
+
 <div class="card">
     <div class="card-image">
         <div class="carousel">
-            <input class="carousel-locator" id="slide-1" type="radio" name="carousel-radio" checked="" hidden="">
-            <input class="carousel-locator" id="slide-2" type="radio" name="carousel-radio" hidden="">
-            <input class="carousel-locator" id="slide-3" type="radio" name="carousel-radio" hidden="">
+            @foreach($images as $index => $image)
+            <input class="carousel-locator" id="slide-{{$index + 1}}" type="radio" name="carousel-radio" hidden="" checked="">
+            @endforeach
             <div class="carousel-container">
+                @foreach($images as $index => $image)
                 <figure class="carousel-item">
-                    <label class="item-prev btn btn-action btn-lg" for="slide-4"><i class="icon icon-arrow-left"></i></label>
-                    <label class="item-next btn btn-action btn-lg" for="slide-2"><i class="icon icon-arrow-right"></i></label><img class="img-responsive rounded" src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="macOS Yosemite Wallpaper">
+                <label class="item-prev btn btn-action btn-lg" for="slide-{{$index + 2}}"><i class="icon icon-arrow-left"></i></label>
+                <label class="item-next btn btn-action btn-lg" for="slide-{{$index + 0}}"><i class="icon icon-arrow-right"></i></label>
+                <img class="img-responsive rounded" src="{{ $image->filepath }}">
                 </figure>
-                <figure class="carousel-item">
-                    <label class="item-prev btn btn-action btn-lg" for="slide-1"><i class="icon icon-arrow-left"></i></label>
-                    <label class="item-next btn btn-action btn-lg" for="slide-3"><i class="icon icon-arrow-right"></i></label><img class="img-responsive rounded" src="https://images.pexels.com/photos/775907/pexels-photo-775907.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="macOS Yosemite Wallpaper">
-                </figure>
-                <figure class="carousel-item">
-                    <label class="item-prev btn btn-action btn-lg" for="slide-2"><i class="icon icon-arrow-left"></i></label>
-                    <label class="item-next btn btn-action btn-lg" for="slide-4"><i class="icon icon-arrow-right"></i></label><img class="img-responsive rounded" src="https://images.pexels.com/photos/1005644/pexels-photo-1005644.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="macOS El Capitan Wallpaper">
-                </figure>
+                @endforeach
             </div>
             <div class="carousel-nav">
-                <label class="nav-item text-hide c-hand" for="slide-1">1</label>
-                <label class="nav-item text-hide c-hand" for="slide-2">2</label>
-                <label class="nav-item text-hide c-hand" for="slide-3">3</label>
+            @foreach($images as $index => $image)
+            <label class="nav-item text-hide c-hand" for="slide-{{$index + 1}}">{{ $index + 1}}</label>
+            @endforeach
             </div>
         </div>
         <!-- <img src="https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" class="img-responsive"> -->
