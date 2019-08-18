@@ -15,7 +15,10 @@
                     @if ( auth()->user()->credit_amount > 0 )
                     <a href="" class="btn">View</a>
                     @endif
-                    <a href="/stripe" class="btn btn-primary">Buy</a>
+                    <a href="/stripe" class="btn btn-primary">    
+                        <i class="icon" data-feather="dollar-sign"></i>
+                        Buy creunits
+                    </a>
                 </div>
             </div>
         </div>
