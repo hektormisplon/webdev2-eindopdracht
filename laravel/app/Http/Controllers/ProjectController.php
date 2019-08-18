@@ -62,7 +62,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $this->authorize('update', $project);
-        return view('projects.edit', compact('project'));
+        $categories = Category::all();
+        return view('projects.edit', compact('project', 'categories'));
     }
 
     public function update(Project $project)
@@ -70,7 +71,8 @@ class ProjectController extends Controller
         $this->authorize('update', $project);
         $project->update(request()->validate([
             'title' => ['required', 'min:3'],
-            'description' => ['required', 'min:15']
+            'description' => ['required', 'min:15'],
+            'info' => ['required', 'min:100'],
         ]));
         return redirect('/projects')->with('success', 'Your project has been updated.');
     }
