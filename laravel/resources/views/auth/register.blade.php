@@ -11,6 +11,20 @@
         @enderror
     </div>
     <div class="form-group">
+        <label class="form-label" for="first_name">{{ __('First name') }}</label>
+        <input class="form-input @error('first_name') is-error @enderror" name="first_name" type="name" value="{{ old('first_name')}}" autofocus>
+        @error('first_name')
+        <div class="toast toast-error">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="last_name">{{ __('Last name') }}</label>
+        <input class="form-input @error('last_name') is-error @enderror" name="last_name" type="name" value="{{ old('last_name')}}" autofocus>
+        @error('last_name')
+        <div class="toast toast-error">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-group">
         <label class="form-label" for="password">{{ __('Password') }}</label>
         <input class="form-input @error('password') is-error @enderror" name="password" type="password">
         @error('password')

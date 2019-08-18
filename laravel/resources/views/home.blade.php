@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <h3 class="text-bold">
-    Hello there,
+    Hello {{ auth()->user()->first_name }}
 </h3>
 <h5>
     @if(auth()->user()->isAdmin())
@@ -63,5 +63,4 @@
         </div>
     </a>
 </div>
-    
-    @endsection
+@endsection
