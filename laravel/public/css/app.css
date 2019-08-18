@@ -910,6 +910,18 @@ html:lang(ko),
   border-left-color: #fff;
 }
 
+.btn.btn-light {
+  border: 1px solid #cda1e8;
+  background: transparent;
+  color: #fff !important;
+  width: 8rem;
+  transition: 50ms;
+}
+
+.btn.btn-light:hover {
+  transform: scale(1.05);
+}
+
 .btn.btn-link {
   background: transparent;
   border-color: transparent;
@@ -1450,13 +1462,6 @@ textarea.form-input.input-sm {
   margin-left: -0.05rem;
 }
 
-.input-group .form-input:focus,
-.input-group .form-select:focus,
-.input-group .input-group-addon:focus,
-.input-group .input-group-btn:focus {
-  z-index: 2;
-}
-
 .input-group .form-select {
   width: auto;
 }
@@ -1768,9 +1773,11 @@ video.video-responsive::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 
 .column {
+  width: 100%;
   max-width: 60rem;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
@@ -2116,6 +2123,7 @@ summary.accordion-header::-webkit-details-marker {
 }
 
 .card {
+  width: 100%;
   background: #fff;
   border: 0.05rem solid #dadee4;
   border-radius: 0.1rem;
@@ -2405,6 +2413,10 @@ summary.accordion-header::-webkit-details-marker {
   margin: 0.2rem 0;
 }
 
+.nav .nav-header {
+  color: #cda1e8;
+}
+
 .nav .nav-item a {
   color: #66758c;
   padding: 0.2rem 0.4rem;
@@ -2496,6 +2508,7 @@ summary.accordion-header::-webkit-details-marker {
 }
 
 .panel {
+  width: 100%;
   border: 0.05rem solid #dadee4;
   border-radius: 0.1rem;
   display: flex;
@@ -2532,7 +2545,6 @@ summary.accordion-header::-webkit-details-marker {
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.2s;
   width: 320px;
-  z-index: 400;
 }
 
 .popover *:focus + .popover-container,
@@ -2711,6 +2723,7 @@ summary.accordion-header::-webkit-details-marker {
   border: 0.05rem solid #dadee4;
   border-radius: 0.1rem;
   padding: 0.8rem;
+  width: 100%;
 }
 
 .tile .tile-icon,
@@ -3296,6 +3309,19 @@ a.text-primary:visited {
   color: #832cb8;
 }
 
+.text-primary-light {
+  color: #7d2aaf !important;
+}
+
+a.text-primary-light:focus,
+a.text-primary-light:hover {
+  color: #6e259b;
+}
+
+a.text-primary-light:visited {
+  color: #8b2fc4;
+}
+
 .text-secondary {
   color: #c794e6 !important;
 }
@@ -3613,6 +3639,14 @@ a.text-error:visited {
 
 .p-fixed {
   position: fixed !important;
+}
+
+.p-fixed.-top {
+  top: 3.2rem;
+}
+
+.p-fixed.-right {
+  right: 0;
 }
 
 .p-sticky {
