@@ -56,7 +56,8 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $this->authorize('update', $project);
-        return view('projects.show', compact('project'));
+        $images = $project->projectImages()->get();
+        return view('projects.show', compact('project', 'images'));
     }
 
     public function edit(Project $project)
