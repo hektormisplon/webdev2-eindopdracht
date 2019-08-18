@@ -36,6 +36,9 @@
                         <h6 class="text-bold">Discover</h6>
                     </li>
                     <li class="nav-item">
+                        <a class="text-light" href="/discover">Projects</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="text-light" href="/news">News</a>
                     </li>
                     <li class="nav-item">
