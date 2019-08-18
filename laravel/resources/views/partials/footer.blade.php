@@ -1,5 +1,5 @@
-<footer class='navbar p-centered hide-sm'>
-    <section class='navbar-section'>
+<footer class='footer navbar hide-sm'>
+    <section class='navbar-section flex-centered'>
         <sub>
             <a href="/terms-conditions">Terms of use</a>
         </sub>

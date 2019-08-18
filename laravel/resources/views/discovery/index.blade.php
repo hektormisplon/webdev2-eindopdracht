@@ -12,7 +12,7 @@
 <div class="tile">
     <div class="tile-content">
         <div class="d-flex">
-            <div class="tile-title text-bold">{{$project->title}}</div>
+            <div class="tile-title text-bold"><a href="/discover/details/{{$project->id}}">{{$project->title}}</a></div>
             <div class="divider-vert"></div>
             <small class="tile-subtitle text-gray">{{$project->created_at->format('M j Y | g:i')}}</small>
         </div>

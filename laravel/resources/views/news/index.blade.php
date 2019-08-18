@@ -3,7 +3,7 @@
 @section('content')
 <h3 class="text-bold">News</h3>
 <div class="divider" data-content="Latest news"></div>
-<div class="article-container" style='height: 75vh'>
+<div class="article-container" style='height: 66vh;'>
     @foreach ($news as $article)
     <div class="tile tile-centered">
         <div class="tile-content">
