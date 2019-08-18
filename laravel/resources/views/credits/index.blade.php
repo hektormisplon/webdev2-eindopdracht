@@ -6,7 +6,8 @@
 </div>
 @endif
 <h3 class="text-bold">My creunits</h3>
-<a href="{{ route('credits.edit', $user->id) }}">Buy creunits</a>
+
+@if($user->credit_amount > 0)
 <div class="panel column col-mr-auto">
     <table class="table">
         <thead>
@@ -24,4 +25,13 @@
     </table>
 </div>
 </div>
+@else
+<div class="empty">
+    <div class="empty-icon"><i class="icon icon-3x" data-feather="meh"></i></div>
+    <p class="empty-subtitle">You don't have any creunits at the moment.</p>
+</div>
+@endif
+<a class="btn btn-primary" href="/stripe">
+    <i class="icon" data-feather="dollar-sign"></i>Buy creunits
+</a>
 @endsection
