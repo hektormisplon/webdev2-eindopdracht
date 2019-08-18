@@ -4,8 +4,9 @@
 <div class="divider pb-2" data-content="Projects overview"></div>
 
 @if(count($projects) > 0)
-<div class="btn-group">
-<a href="/discover" class="btn">all</a>
+<div class="btn-group btn-group-block">
+    <a href="/discover" class="btn">all</a>
+
     @foreach($categories as $category)
         <a href="/discover/{{ $category->name }}" class="btn">{{ $category->name }}</a>
     @endforeach
