@@ -44,6 +44,7 @@
         @endif
     </div>
     <div class="card-body">
+        {{ $project->info }}
     </div>
     <div class="card-footer">
         @if ($project->pledge)
