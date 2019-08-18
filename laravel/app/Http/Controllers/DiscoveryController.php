@@ -18,11 +18,13 @@ class DiscoveryController extends Controller
     {
         $projects = Project::all();
         $categories = Category::all();
+        $category = request('category');
 
-        if (request('category')) {
-            $projects = Project::where('category_id', Category::where('name', request('category'))->first()->id)->get();
+        if ($category) {
+            $projects = Project::where('category_id', Category::where('name', $category)->first()->id)->get();
             return view('discovery.index', compact('projects', 'categories'));
         }
+
         return view('discovery.index', compact('projects', 'categories'));
     }
 
