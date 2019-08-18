@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Credits kopen</title>
+    <title>Buy creunits</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="stripe-token" content="{{ env('STRIPE_KEY') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -55,10 +55,10 @@
     </style>
 </head>
 <body>
+    @include('partials.header')
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <a href="/home" class="btn">Go home</a>
                 <div class="panel panel-default credit-card-box">
                     <div class="panel-heading display-table" >
                         <div class="row display-tr" >
