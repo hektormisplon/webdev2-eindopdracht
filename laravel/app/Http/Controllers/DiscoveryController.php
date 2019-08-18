@@ -33,7 +33,7 @@ class DiscoveryController extends Controller
      */
     public function show($id)
     {
-        $project = Project::where('id', $id)->first();
+        $project = Project::findOrFail($id);
         return view('discovery.show', compact('project'));
     }
 }
