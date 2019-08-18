@@ -29,7 +29,7 @@
         <!-- <img src="https://images.pexels.com/photos/158826/structure-light-led-movement-158826.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" class="img-responsive"> -->
     </div>
     <div class="card-header">
-    <a class="btn" href="/{{ Request::path() }}/pdf">Download PDF</a>
+        <a class="btn float-right" href="/{{ Request::path() }}/pdf"><i class="icon icon-x2" data-feather="download"></i> pdf</a>
         <h3 class="card-title">{{$project->title}}</h3>
         <p class="card-subtitle text-gray">{{$project->description}}</p>
         <p class="float-left">{{$project->created_at->format('d M y')}}</p>
