@@ -25,6 +25,7 @@ Route::get('terms-conditions', 'PageController@terms');
 
 Route::get('discover/details/{id}', 'DiscoveryController@show');
 Route::get('discover/details/{id}/pdf', 'DiscoveryController@getPDF');
+Route::get('discover/details/{id}/pledge-history', 'DiscoveryController@showPledgeHistory');
 Route::get('discover/{category}', 'DiscoveryController@index');
 Route::get('discover', 'DiscoveryController@index');
 Route::resource('news', 'NewsController');
@@ -46,7 +47,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::patch('/projects/{project}/pledge', 'ProjectPledgeController@pledge');
 
-    Route::resource('credits', 'CreditController');
+    Route::get('credits', 'CreditController@index');
+    Route::get('credits/pledge-history', 'CreditController@showPledgeHistory');
     Route::get('stripe', 'PaymentController@getStripeForm');
     Route::post('stripe', 'PaymentController@postStripePayment')->name('stripe.post');
     Route::post('api/convert', 'APIController@postConvert')->name('converter');
