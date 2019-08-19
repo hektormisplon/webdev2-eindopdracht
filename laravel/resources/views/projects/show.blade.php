@@ -1,11 +1,5 @@
 @extends('layout')
 @section('content')
-@if(session('message'))
-<div class="toast toast-success mb-2">
-    {{ session('message') }}
-</div>
-@endif
-
 <div class="card">
     <div class="card-image">
         <div class="carousel">
@@ -34,17 +28,14 @@
         <p class="card-subtitle text-gray">{{$project->description}}</p>
         <p class="float-left">{{$project->created_at->format('d M y')}}</p>
         <p class="float-right">{{ $project->deadline->format('d M y') }}</p>
-        @if($project->pledge)
-        <meter class="meter" low="{{ $project->pledge->goal / 4 }}" high="{{ $project->pledge->goal / 2 }}" optimum="{{ $project->pledge->goal }}" value="{{ $project->pledge->pledged }}" min="0" max="{{ $project->pledge->goal }}"></meter>
-        <small>{{ $project->pledge->pledged/$project->pledge->goal *100 }}% funded</small>
-        @endif
+        <meter class="meter" low="{{ $project->goal / 4 }}" high="{{ $project->goal / 2 }}" optimum="{{ $project->goal }}" value="{{ $project->pledged }}" min="0" max="{{ $project->goal }}"></meter>
+        <small>{{ (int)($project->pledged/$project->goal *100) }}% funded</small>
     </div>
     <div class="card-body">
         {{ $project->info }}
     </div>
     <div class="card-footer">
-        @if ($project->pledge)
-        <form method="post" action="/pledges/{{ $project->pledge->id }}">
+        <form method="post" action="/projects/{{ $project->id }}/pledge">
             @method('PATCH')
             @csrf
             <div class="input-group">
@@ -52,7 +43,6 @@
                 <button class="btn btn-primary" type="submit">Fund</button>
             </div>
         </form>
-        @endif
         <div class="btn-group btn-group-block">
             <a class="btn btn" href="{{ route('projects.edit',$project->id)}}">Edit</a>
             <form action="{{ route('projects.destroy', $project->id)}}" method="post">

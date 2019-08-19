@@ -12,7 +12,8 @@ class Pledge extends Model
         return $this->belongsTo('App\Project');
     }
 
-    public function sponsor() {
+    public function sponsor()
+    {
         $this->update(['pledged' => $this->pledged + request('pledged')]);
     }
 }

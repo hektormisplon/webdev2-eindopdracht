@@ -31,18 +31,8 @@ class Project extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function pledge()
-    {
-        return $this->hasOne(Pledge::class);
-    }
-
     public function projectImages()
     {
         return $this->hasMany(ProjectImage::class);
-    }
-
-    public function addPledge($pledge)
-    {
-        $this->pledge()->create($pledge);
     }
 }

@@ -12,10 +12,10 @@
                 <i class="icon icon-3x text-secondary" data-feather="package"></i>
             </span>
             <input type="number" placeholder="0" class="form-input input-primary @error('goal') is-error @enderror" name="goal" value="{{ old('goal') }}" />
-            @error('goal')
-            <div class="toast toast-error">{{ $message }}</div>
-            @enderror
         </div>
+        @error('goal')
+        <div class="toast toast-error">{{ $message }}</div>
+        @enderror
     </div>
     <div class="form-group">
         @csrf

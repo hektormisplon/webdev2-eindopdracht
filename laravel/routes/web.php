@@ -44,10 +44,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('profile', 'UserController');
     Route::resource('projects', 'ProjectController');
 
-    Route::get('/pledges', 'ProjectPledgeController@index');
-    Route::get('/pledges/{pledge}', 'ProjectPledgeController@show');
-    Route::patch('/pledges/{pledge}', 'ProjectPledgeController@update');
-    Route::patch('/projects/{project}/pledge', 'ProjectPledgeController@store');
+    Route::patch('/projects/{project}/pledge', 'ProjectPledgeController@pledge');
 
     Route::resource('credits', 'CreditController');
     Route::get('stripe', 'PaymentController@getStripeForm');

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Category;
-use App\Pledge;
 use App\Events\ProjectPublished;
 
 class ProjectController extends Controller
@@ -37,19 +36,13 @@ class ProjectController extends Controller
             'description' => ['required', 'min:15'],
             'info' => ['required', 'min:100'],
             'deadline' => ['required'],
+            'goal' => ['required']
         ]);
 
         $category_id = Category::where('name', request('category'))->first()->id;
-
         $projectAttributes['owner_id'] = auth()->id();
         $projectAttributes['category_id'] = $category_id;
         $project = Project::create($projectAttributes);
-
-        $pledgeAttributes = request()->validate([
-            'goal' => ['required', 'numeric'],
-        ]);
-        $pledgeAttributes['project_id'] = $project->id;
-        $pledge = Pledge::create($pledgeAttributes);
         return redirect('projects/' . $project->id)->with('message', 'Your project has been published.');
     }
 
