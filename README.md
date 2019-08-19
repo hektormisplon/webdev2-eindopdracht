@@ -1,6 +1,23 @@
 # Environment setup instructions
 
-## important: make sure to run "php artisan migrate" w/ "--seed"
+## important
+
+### make sure to put the mail driver to log before migrations & seeding
+
+Standaard users worden aangemaakt (e.g. admin@mail.com) en zijn niet gemachtigd voor de mailgun sandbox.
+Bij het aanmaken van een project wordt namelijk een email naar de user verzonden.
+
+Om de emails te controleren werkte ik met telescope (localhost:8000/telescope), de email event listeners werken voor gemachtigde users maar kunnen voor problemen zorgen door de niet gemachtigde standaard users.
+
+### make sure to run "php artisan migrate" w/ "--seed"
+
+Voor zowat alle entities werden factories en seeders gemaakt, migrate met seed zorgt er dan ook voor enkele standaard accounts.
+
+| email                | password |
+| -------------------- | -------- |
+| admin@mail.com       | password |
+| user@mail.com        | password |
+| nonverified@mail.com | password |
 
 1 Clone the repo
 
