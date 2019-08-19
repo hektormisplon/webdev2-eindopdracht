@@ -9,7 +9,20 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('welcome');
+        $projects = \App\Project::all();
+        // $averageProjectGoal = $projects->avg('goal');
+        $sumProjectGoal = $projects->sum('goal');
+        $sumProjectPledged = $projects->sum('pledged');
+        $totalProjects = $projects->count();
+
+        $projectStatistics = [
+            'numberOfProjects' => $totalProjects,
+            // 'averageGoal' => $projects->avg('goal'),
+            'totalGoal' => $sumProjectGoal,
+            'totalPledged' => $sumProjectPledged,
+            'totalRemaining' => $sumProjectGoal - $sumProjectPledged
+        ];
+        return view('welcome', compact('projectStatistics'));
     }
 
     public function about()
