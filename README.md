@@ -1,8 +1,8 @@
 # Environment setup instructions
 
-## important
+## Belangrijk
 
-### make sure to put the mail driver to log before migrations & seeding
+### Zorg ervoor dat MAIL_DRIVER=log is voor migrations & seeding
 
 Standaard users worden aangemaakt (e.g. admin@mail.com) en zijn niet gemachtigd voor de mailgun sandbox.
 Bij het aanmaken van een project wordt namelijk een email naar de user verzonden.
