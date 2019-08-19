@@ -37,7 +37,8 @@ class DiscoveryController extends Controller
     public function show($id)
     {
         $project = Project::findOrFail($id);
-        return view('discovery.show', compact('project'));
+        $images = $project->projectImages()->get();
+        return view('discovery.show', compact('project', 'images'));
     }
 
     public function getPDF($id)
