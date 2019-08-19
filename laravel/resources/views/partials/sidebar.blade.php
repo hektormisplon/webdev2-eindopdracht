@@ -28,7 +28,7 @@
                         <a class="btn btn-light" href="/credits">My creunits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-light" href="/credits">Buy creunits</a>
+                        <a class="btn btn-light" href="/stripe">Buy creunits</a>
                     </li>
                 </ul>
             </li>
