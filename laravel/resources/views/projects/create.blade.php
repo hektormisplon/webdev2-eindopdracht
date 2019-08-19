@@ -3,7 +3,7 @@
 @section('content')
 <h3 class="text-bold">New project</h3>
 <div class="divider" data-content="Pledge details"></div>
-<form method="post" action="{{ route('projects.store') }}">
+<form method="post" action="{{ route('projects.store') }}" enctype="multipart/form-data">
     <div class="form-group">
         @csrf
         <label class="form-label" for="name">Pledge goal</label>
@@ -60,6 +60,10 @@
         @error('info')
         <div class="toast toast-error">{{ $message }}</div>
         @enderror
+    </div>
+    <div class="form-group">
+        <input class="form-input" type="file" name="image">
+        <small>Please upload a valid image file. Max. 2MB.</small>
     </div>
     <button type="submit" class="btn btn-primary">Publish</button>
 </form>
