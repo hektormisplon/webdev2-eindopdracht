@@ -18,16 +18,14 @@
             <div class="divider-vert"></div>
             <small class="tile-subtitle text-gray">{{$project->created_at->format('M j Y | g:i')}}</small>
         </div>
-        @if($project->pledge)
         <meter
-            class="meter meter-sm" low="{{ $project->pledge->goal / 4 }}" 
-            high="{{ $project->pledge->goal / 2 }}" 
-            optimum="{{ $project->pledge->goal }}" 
-            value="{{ $project->pledge->pledged }}" 
+            class="meter meter-sm" low="{{ $project->goal / 4 }}" 
+            high="{{ $project->goal / 2 }}" 
+            optimum="{{ $project->goal }}" 
+            value="{{ $project->pledged }}" 
             min="0" 
-            max="{{ $project->pledge->goal }}">
+            max="{{ $project->goal }}">
         </meter>
-        @endif
         <p class="tile-subtitle mt-2">{{ $project->description }}</p>
     </div>
     <div class="tile-action">
