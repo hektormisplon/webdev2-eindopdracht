@@ -35,7 +35,6 @@ class ProjectPledgeController extends Controller
         $project->update(['pledged' => $project->pledged + $pledged]);
 
         // event(new ProjectPledged($transaction));
-
         return redirect('discover/details/' . $project->id)->with('message', 'You pledged ' . $pledged . ' creunits');
     }
 }
