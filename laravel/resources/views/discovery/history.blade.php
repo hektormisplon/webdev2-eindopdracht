@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<h3 class="text-bold">Pledge history</h3>
+<h3 class="text-bold">Funding history</h3>
 <a class="btn mb-2" href="{{ url()->previous() }}">
     <i class="icon icon-1x" data-feather="arrow-left"></i>
     Back
