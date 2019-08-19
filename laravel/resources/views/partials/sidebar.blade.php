@@ -49,6 +49,19 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item">
+                <ul class="nav">
+                    <li class="nav-header">
+                        <i class="icon icon-2x" data-feather="gift"></i>
+                        <h6 class="text-bold">
+                            Rewards
+                        </h6>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-light" href="/rewards">View rewards</a>
+                    </li>
+                </ul>
+            </li>
             @if(auth()->user()->isAdmin())
             <li class="nav-item">
                 <ul class="nav">
