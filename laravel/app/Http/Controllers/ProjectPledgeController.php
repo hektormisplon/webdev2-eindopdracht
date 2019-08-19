@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\ProjectPledged;
 use App\Project;
 use App\Transaction;
 
@@ -10,13 +11,12 @@ class ProjectPledgeController extends Controller
 {
     public function pledge(Project $project)
     {
-
         $user = auth()->user();
         if ($project->owner->id == $user->id) {
             return redirect('discover/details/' . $project->id)->with('warning', 'The goal is to find other people to fund your project.');
         }
 
-        Transaction::create([
+        $transaction = Transaction::create([
             'credit_amount' => request('pledged'),
             'project_id' => $project->id,
             'user_id' => auth()->user()->id
@@ -33,6 +33,9 @@ class ProjectPledgeController extends Controller
         }
         $user->update(['credit_amount' => $user->credit_amount - request('pledged')]);
         $project->update(['pledged' => $project->pledged + $pledged]);
+
+        event(new ProjectPledged($transaction));
+
         return redirect('discover/details/' . $project->id)->with('message', 'You pledged ' . $pledged . ' creunits');
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\ProjectPledged;
 use App\Events\ProjectPublished;
+use App\Listeners\SendProjectPledgedNotification;
 use App\Listeners\SendProjectPublishedNotification;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
@@ -22,7 +24,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         ProjectPublished::class => [
             SendProjectPublishedNotification::class
-        ]
+        ],
+        ProjectPledged::class => [
+            SendProjectPledgedNotification::class
+        ],
     ];
 
     /**
