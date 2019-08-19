@@ -94,9 +94,11 @@
         @endforeach
     </div>
     <div class="panel-footer">
+        @auth
         <div class="input-group">
             <input class="form-input" type="text" placeholder="Leave a comment...">
-            <button class="btn btn-primary input-group-btn">TODO</button>
+            <a class="btn btn-primary input-group-btn">Send</a>
         </div>
+        @endauth
     </div>
 @endsection
