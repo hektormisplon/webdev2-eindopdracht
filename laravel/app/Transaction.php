@@ -13,8 +13,8 @@ class Transaction extends Model
         return $this->belongsTo('App\Project');
     }
 
-    public function sender()
+    public function owner()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 }
