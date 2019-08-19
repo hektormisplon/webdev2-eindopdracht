@@ -16,7 +16,7 @@
     </div>
     <div class="panel-body">
         <h5>Latest funding</h5>
-        <p>{{ $latestTransaction->credit_amount }} to {{ $projectTitle }} by {{ $projectOwner }}</p>
+        <p>You funded <i class="icon" data-feather="package"></i>{{ $latestTransaction->credit_amount }} to "{{ $projectTitle }}" by {{ $projectOwner }}</p>
     </div>
     <div class="panel-footer">
         <a class="btn btn-primary" href="/stripe">
