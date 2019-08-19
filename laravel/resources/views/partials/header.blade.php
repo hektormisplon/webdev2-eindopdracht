@@ -11,19 +11,14 @@
                 <i class="icon icon-2x" data-feather="package"></i>
             </a>
             <div class="popover-container">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center">{{ auth()->user()->credit_amount }}</h3>
-                        <div class="divider text-center" data-content="Credits"></div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="btn-group btn-group-block">
-                            @if ( auth()->user()->credit_amount > 0 )
-                            <a href="" class="btn">View</a>
-                            @endif
-                            <a href="" class="btn btn-primary">Buy</a>
-                        </div>
-                    </div>
+                <div class="btn-group btn-group-block">
+                    @if ( auth()->user()->credit_amount > 0 )
+                    <a href="" class="btn">View</a>
+                    @endif
+                    <a href="/stripe" class="btn btn-primary">    
+                        <i class="icon" data-feather="dollar-sign"></i>
+                        Buy creunits
+                    </a>
                 </div>
             </div>
         </div>

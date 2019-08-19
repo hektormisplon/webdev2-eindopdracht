@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
-use App\Pledge;
+use App\Category;
 use App\Events\ProjectPublished;
 
 class ProjectController extends Controller
@@ -24,7 +24,8 @@ class ProjectController extends Controller
 
     public function create()
     {
-        return view('projects.create');
+        $categories = Category::all();
+        return view('projects.create', compact('categories'));
     }
 
     public function store()
@@ -33,28 +34,30 @@ class ProjectController extends Controller
         $projectAttributes = request()->validate([
             'title' => ['required', 'min:3'],
             'description' => ['required', 'min:15'],
+            'info' => ['required', 'min:100'],
+            'deadline' => ['required'],
+            'goal' => ['required']
         ]);
-        $projectAttributes['owner_id'] = auth()->id();
-        $project = Project::create($projectAttributes);
 
-        $pledgeAttributes = request()->validate([
-            'goal' => ['required', 'numeric'],
-        ]);
-        $pledgeAttributes['project_id'] = $project->id;
-        $pledge = Pledge::create($pledgeAttributes);
+        $category_id = Category::where('name', request('category'))->first()->id;
+        $projectAttributes['owner_id'] = auth()->id();
+        $projectAttributes['category_id'] = $category_id;
+        $project = Project::create($projectAttributes);
         return redirect('projects/' . $project->id)->with('message', 'Your project has been published.');
     }
 
     public function show(Project $project)
     {
         $this->authorize('update', $project);
-        return view('projects.show', compact('project'));
+        $images = $project->projectImages()->get();
+        return view('projects.show', compact('project', 'images'));
     }
 
     public function edit(Project $project)
     {
         $this->authorize('update', $project);
-        return view('projects.edit', compact('project'));
+        $categories = Category::all();
+        return view('projects.edit', compact('project', 'categories'));
     }
 
     public function update(Project $project)
@@ -62,7 +65,8 @@ class ProjectController extends Controller
         $this->authorize('update', $project);
         $project->update(request()->validate([
             'title' => ['required', 'min:3'],
-            'description' => ['required', 'min:15']
+            'description' => ['required', 'min:15'],
+            'info' => ['required', 'min:100'],
         ]));
         return redirect('/projects')->with('success', 'Your project has been updated.');
     }

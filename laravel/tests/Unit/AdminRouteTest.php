@@ -8,12 +8,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AdminRouteTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-
     /** @test */
     public function home()
     {

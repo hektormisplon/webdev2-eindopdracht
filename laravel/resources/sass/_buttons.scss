@@ -82,6 +82,17 @@
         @include button-variant($error-color);
     }
 
+    &.btn-light {
+        border: 1px solid $secondary-color;
+        background: transparent;
+        color: $light-color !important;
+        width: 8rem;
+        transition: 50ms;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
     // Button Link
     &.btn-link {
         background: transparent;

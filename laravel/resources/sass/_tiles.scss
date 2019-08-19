@@ -7,6 +7,7 @@
     border: $border-width solid $border-color;
     border-radius: $border-radius;
     padding: $layout-spacing-lg;
+    width: 100%;
 
     .tile-icon,
     .tile-action {

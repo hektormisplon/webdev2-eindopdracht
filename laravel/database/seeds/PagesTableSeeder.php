@@ -35,7 +35,7 @@ class PagesTableSeeder extends Seeder
       [
         'path' => 'terms-conditions',
         'title' => 'Terms & conditions',
-        'subtitle' => 'Terms & conditions sub',
+        'subtitle' => 'Our terms and conditions',
         'body' => $faker->sentence(80)
       ],
     ];

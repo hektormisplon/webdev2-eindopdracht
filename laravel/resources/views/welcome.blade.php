@@ -13,6 +13,28 @@
 <div class="hero hero-lg">
     <div class="hero-body">
         <h1 class="text-bold">Creation,<br> united.</h1>
+        <h5>
+            <i class="icon icon-2x" data-feather="briefcase"></i>
+            {{ $projectStatistics['numberOfProjects'] }} projects
+        </h5>
+        {{-- <p>an average goal of {{ $projectStatistics[1] }} creunits</p> --}}
+        <h5>
+            <i class="icon icon-2x" data-feather="package"></i>
+            {{ $projectStatistics['totalPledged'] }} creunits funded.
+        </h5>
+        <h5 class="text-bold">
+            <i class="icon icon-2x" data-feather="package"></i>
+            {{ $projectStatistics['totalRemaining'] }} creunits to go.
+        </h5>
+        @guest
+        <a class="btn btn-primary btn-lg mt-4" href="/register">
+            Join
+        </a>
+        <a class="btn btn-lg mt-4" href="/register">
+            <i class="icon" data-feather="wind"></i>
+            Discover
+        </a>
+        @endguest
     </div>
 </div>
 @endsection

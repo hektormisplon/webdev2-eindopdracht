@@ -3,6 +3,7 @@
 .divider-vert {
     display: block;
     position: relative;
+    z-index: -1;
 
     &[data-content]::after {
         background: $bg-color-light;

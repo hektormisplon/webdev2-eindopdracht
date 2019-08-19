@@ -1,24 +1,13 @@
 @extends('layout')
 @section('content')
+<h3 class="text-bold">Profile</h3>
 <div class="panel">
     <div class="panel-header text-center">
         <figure class="avatar avatar-xl"> <img src="/storage/avatars/{{ $user->avatar }}" /></figure>
-        @if ($user->name)
-        <div class="panel-title h5 mt-10">{{ $user->name }}</div>
-        @endif
-        <div class="panel-subtitle">User settings</div>
+        <div class="panel-title h5 mt-10">{{ $user->name() }}</div>
     </div>
     <div class="divider text-center" data-content="Account"></div>
     <div class="panel-body">
-        <div class="tile tile-centered">
-            <div class="tile-content">
-                <div class="tile-title text-bold">Email</div>
-                <div class="tile-subtitle">{{ $user->email }}</div>
-            </div>
-            <div class="tile-action">
-                <button class="btn btn-link btn-action btn-lg tooltip tooltip-left" data-tooltip="Edit E-mail"><i class="icon icon-edit"></i></button>
-            </div>
-        </div>
         <form id="personal-settings" action="{{ route('profile.update', $user->id) }}" method="post" enctype="multipart/form-data">
             @method('PATCH')
             @csrf

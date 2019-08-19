@@ -15,21 +15,19 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 
-<body class="layout-container of-hidden">
+<body class="layout-container">
     @include('partials.header')
+    @auth
+    @include('partials.sidebar')
+    @endauth
     <div class="content-container">
         <div class="columns">
-            @auth
-            <div class="column col-md-1 col-lg-3 col-xl-3 col-2">
-                @include('partials.sidebar')
-            </div>
-            @endauth
-            <div class="column col-md-10 col-lg-8 col-xl-8 col-4 col-1-mx-auto mt-8 @guest p-centered @endguest">
+            <div class="column">
                 @yield('content')
             </div>
         </div>
+        @include('partials.footer')
     </div>
-    @include('partials.footer')
     <script>
         feather.replace()
     </script>

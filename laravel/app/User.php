@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'credit_amount'
+        'first_name', 'last_name', 'email', 'password', 'avatar', 'credit_amount'
     ];
 
     /**
@@ -40,5 +40,20 @@ class User extends Authenticatable
     public function projects()
     {
         return $this->hasMany(Project::class, 'owner_id');
+    }
+
+    public function isAdmin()
+    {
+        return $this->role == 'admin' ? true : false;
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function name()
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 }

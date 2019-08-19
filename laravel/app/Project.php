@@ -13,6 +13,14 @@ class Project extends Model
         'created' => ProjectPublished::class
     ];
 
+    /**
+     * Date mutator
+     * - Format dates for db
+     */
+    protected $dates = [
+        'deadline',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(User::class);
@@ -23,13 +31,13 @@ class Project extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function pledge()
+    public function projectImages()
     {
-        return $this->hasOne(Pledge::class);
+        return $this->hasMany(ProjectImage::class);
     }
 
-    public function addPledge($pledge)
+    public function transactions()
     {
-        $this->pledge()->create($pledge);
+        return $this->hasMany(Transaction::class);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\News;
 use App\Page;
 use Illuminate\Http\Request;
 
@@ -10,7 +9,20 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('welcome');
+        $projects = \App\Project::all();
+        // $averageProjectGoal = $projects->avg('goal');
+        $sumProjectGoal = $projects->sum('goal');
+        $sumProjectPledged = $projects->sum('pledged');
+        $totalProjects = $projects->count();
+
+        $projectStatistics = [
+            'numberOfProjects' => $totalProjects,
+            // 'averageGoal' => $projects->avg('goal'),
+            'totalGoal' => $sumProjectGoal,
+            'totalPledged' => $sumProjectPledged,
+            'totalRemaining' => $sumProjectGoal - $sumProjectPledged
+        ];
+        return view('welcome', compact('projectStatistics'));
     }
 
     public function about()
@@ -21,11 +33,6 @@ class PageController extends Controller
     public function contact()
     {
         return view('base', ['page' => Page::where('title', 'contact')->first()]);
-    }
-
-    public function news()
-    {
-        return view('news', ['news' => News::orderBy('created_at', 'desc')->paginate(3)]);
     }
 
     public function privacyPolicy()

@@ -1,16 +1,8 @@
 .header {
+    position: fixed;
     top: 0;
     left: 0;
-    min-height: 9vh;
+    height: $unit-16;
     width: 100%;
     padding: 0 $layout-spacing;
-    // padding: 0 $layout-spacing;
-}
-
-.m-header {
-    margin-top: 3rem;
-}
-
-.p-header {
-    padding-top: 1rem;
 }

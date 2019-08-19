@@ -3,38 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pledge;
+use App\Events\ProjectPledged;
 use App\Project;
+use App\Transaction;
 
 class ProjectPledgeController extends Controller
 {
-    public function index()
+    public function pledge(Project $project)
     {
-        $pledges = Pledge::all();
-        return view('pledges.index', compact('pledges'));
-    }
+        $user = auth()->user();
+        if ($project->owner->id == $user->id) {
+            return redirect('discover/details/' . $project->id)->with('warning', 'The goal is to find other people to fund your project.');
+        }
 
-    public function create()
-    {
-        $pledged = Pledge::create(request()->validate([
-            'pledged' => ['required'],
-            'amount' => ['required']
-        ]));
-    }
+        $transaction = Transaction::create([
+            'credit_amount' => request('pledged'),
+            'project_id' => $project->id,
+            'user_id' => auth()->user()->id
+        ]);
 
-    public function show(Pledge $pledge)
-    {
-        return view('pledges.show', compact('pledge'));
-    }
+        $adminFee = request('pledged') * .1;
+        $admin = \App\User::where('role', 'admin')->first();
+        $admin->update(['credit_amount' => $admin->credit_amount + $adminFee]);
 
-    public function store(Project $project)
-    {
-        $project->addPledge(request('amount'));
-    }
+        $pledged = request('pledged') - $adminFee;
+        $user_balance = $user->credit_amount;
+        if ($user_balance < request('pledged')) {
+            return redirect('discover/details/' . $project->id)->with('error', 'You don\'t  have enough creunits for that. ');
+        }
+        $user->update(['credit_amount' => $user->credit_amount - request('pledged')]);
+        $project->update(['pledged' => $project->pledged + $pledged]);
 
-    public function update(Pledge $pledge)
-    {
-        $pledge->sponsor();
-        return back();
+        // event(new ProjectPledged($transaction));
+
+        return redirect('discover/details/' . $project->id)->with('message', 'You pledged ' . $pledged . ' creunits');
     }
 }
