@@ -35,4 +35,9 @@ class Project extends Model
     {
         return $this->hasMany(ProjectImage::class);
     }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

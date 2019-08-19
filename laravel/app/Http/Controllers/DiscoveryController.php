@@ -41,6 +41,13 @@ class DiscoveryController extends Controller
         return view('discovery.show', compact('project', 'images'));
     }
 
+    public function showPledgeHistory($id)
+    {
+        $project = Project::findOrFail($id);
+        $transactions = $project->transactions()->get();
+        return view('discovery.history', compact('transactions'));
+    }
+
     public function getPDF($id)
     {
         $project = Project::findOrFail($id);

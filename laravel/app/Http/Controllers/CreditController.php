@@ -15,7 +15,14 @@ class CreditController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return view('credits.index', compact('user', $user));
+        return view('credits.index', compact('user'));
+    }
+
+    public function showPledgeHistory()
+    {
+        $user = auth()->user();
+        $transactions = $user->transactions()->get();
+        return view('credits.history', compact('user', 'transactions'));
     }
 
     /**
