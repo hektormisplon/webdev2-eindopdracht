@@ -10,7 +10,6 @@
     {{ auth()->user()->email }}
 </h5>
 <div class="divider" data-content="What would you like to do?"></div>
-<div class="d-flex">
     <a href="/projects">
         <div class="tile tile-centered">
             <div class="tile-icon">
@@ -62,5 +61,4 @@
             </div>
         </div>
     </a>
-</div>
 @endsection
