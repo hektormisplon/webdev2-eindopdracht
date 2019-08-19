@@ -5,6 +5,21 @@
     {{ session('message') }}
 </div>
 @endif
+
+@if(session('warning'))
+<div class="toast toast-warning mb-2">
+    {{ session('warning') }}
+    <p>Would you like to <a href="/discover">discover</a> other people's projects?</p>
+</div>
+@endif
+
+@if(session('error'))
+<div class="toast toast-error mb-2">
+    {{ session('error') }}
+    <p>Would you like to <a href="/stripe">buy creunits?</a></p>
+</div>
+@endif
+
 <a class="btn" href="/discover">
     <i class="icon icon-1x" data-feather="arrow-left"></i>
     Back
