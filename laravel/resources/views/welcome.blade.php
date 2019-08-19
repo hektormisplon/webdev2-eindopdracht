@@ -27,7 +27,13 @@
             {{ $projectStatistics['totalRemaining'] }} creunits to go.
         </h5>
         @guest
-        <a class="btn btn-primary btn-lg mt-4" href="/register">Join</a>
+        <a class="btn btn-primary btn-lg mt-4" href="/register">
+            Join
+        </a>
+        <a class="btn btn-lg mt-4" href="/register">
+            <i class="icon" data-feather="wind"></i>
+            Discover
+        </a>
         @endguest
     </div>
 </div>
