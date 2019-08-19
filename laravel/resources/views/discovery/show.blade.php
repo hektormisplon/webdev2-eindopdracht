@@ -5,6 +5,10 @@
     {{ session('message') }}
 </div>
 @endif
+<a class="btn" href="/discover">
+    <i class="icon icon-1x" data-feather="arrow-left"></i>
+    Back
+</a>
 <div class="card">
     <div class="card-image">
         <div class="carousel">
@@ -29,6 +33,9 @@
     </div>
     <div class="card-header">
         <a class="btn float-right" href="/{{ Request::path() }}/pdf"><i class="icon icon-x2" data-feather="download"></i> pdf</a>
+        @if($project->pledged > 0)
+        <a class="btn float-right" href="/{{ Request::path() }}/pledge-history">Pledge history</a>
+        @endif
         <h3 class="card-title">{{$project->title}}</h3>
         <p class="card-subtitle text-gray">{{$project->description}}</p>
         <p class="float-left">{{$project->created_at->format('d M y')}}</p>
