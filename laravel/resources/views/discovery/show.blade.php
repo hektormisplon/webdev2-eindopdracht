@@ -59,6 +59,8 @@
         <small>{{ (int)($project->pledged/$project->goal *100) }}% funded</small>
     </div>
     <div class="card-body">
+        <h6>About this project</h6>
+        {{ $project->info }}
     </div>
     <div class="card-footer">
         <form method="post" action="/projects/{{ $project->id }}/pledge">
