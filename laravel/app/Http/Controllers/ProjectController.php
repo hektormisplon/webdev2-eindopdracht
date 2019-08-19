@@ -36,13 +36,27 @@ class ProjectController extends Controller
             'description' => ['required', 'min:15'],
             'info' => ['required', 'min:100'],
             'deadline' => ['required'],
-            'goal' => ['required']
+            'goal' => ['required'],
         ]);
 
         $category_id = Category::where('name', request('category'))->first()->id;
         $projectAttributes['owner_id'] = auth()->id();
         $projectAttributes['category_id'] = $category_id;
         $project = Project::create($projectAttributes);
+
+        $projectImages = request()->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $imageName = $project->id . '_img' . '.' . request()->image->getClientOriginalExtension();
+        request()->image->storeAs('project-images', $imageName);
+
+        \App\ProjectImage::create([
+            'project_id' => $project->id,
+            'filepath' => '/storage/project-images/',
+            'filename' => $imageName
+        ]);
+
         return redirect('projects/' . $project->id)->with('message', 'Your project has been published.');
     }
 

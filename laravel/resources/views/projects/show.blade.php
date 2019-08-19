@@ -11,7 +11,7 @@
                 <figure class="carousel-item">
                 <label class="item-prev btn btn-action btn-lg" for="slide-{{$index + 2}}"><i class="icon icon-arrow-left"></i></label>
                 <label class="item-next btn btn-action btn-lg" for="slide-{{$index + 0}}"><i class="icon icon-arrow-right"></i></label>
-                <img class="img-responsive rounded" src="{{ $image->filepath }}">
+                <img class="img-responsive rounded" src="{{ $image->filepath . $image->filename }}">
                 </figure>
                 @endforeach
             </div>
