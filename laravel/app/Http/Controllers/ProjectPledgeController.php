@@ -31,8 +31,18 @@ class ProjectPledgeController extends Controller
         if ($user_balance < request('pledged')) {
             return redirect('discover/details/' . $project->id)->with('error', 'You don\'t  have enough creunits for that. ');
         }
+
         $user->update(['credit_amount' => $user->credit_amount - request('pledged')]);
         $project->update(['pledged' => $project->pledged + $pledged]);
+
+
+        if ($transaction->credit_amount > 1000) {
+            \App\Reward::create([
+                'reward' => 'showcase',
+                'tier' => 1,
+                'user_id' => $user->id
+            ]);
+        }
 
         // event(new ProjectPledged($transaction));
         return redirect('discover/details/' . $project->id)->with('message', 'You pledged ' . $pledged . ' creunits');
